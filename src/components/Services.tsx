@@ -1,5 +1,6 @@
-import { Building2, Home, Factory, Hammer, ClipboardList, HardHat } from "lucide-react";
+import { Building2, Home, Factory, Hammer, ClipboardList, HardHat, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import commercialImage from "@/assets/commercial-building.jpg";
 import residentialImage from "@/assets/residential-home.jpg";
 import industrialImage from "@/assets/industrial-project.jpg";
@@ -7,6 +8,7 @@ import industrialImage from "@/assets/industrial-project.jpg";
 const Services = () => {
   const services = [
     {
+      slug: "industrial-estimating",
       icon: Factory,
       title: "Industrial Estimating",
       description:
@@ -14,6 +16,7 @@ const Services = () => {
       image: industrialImage,
     },
     {
+      slug: "residential-estimating",
       icon: Home,
       title: "Residential Estimating",
       description:
@@ -21,6 +24,7 @@ const Services = () => {
       image: residentialImage,
     },
     {
+      slug: "commercial-estimating",
       icon: Building2,
       title: "Commercial Estimating",
       description:
@@ -28,6 +32,7 @@ const Services = () => {
       image: commercialImage,
     },
     {
+      slug: "remodeling-estimating",
       icon: Hammer,
       title: "Remodeling & Renovation",
       description:
@@ -35,6 +40,7 @@ const Services = () => {
       image: null,
     },
     {
+      slug: "preliminary-estimating",
       icon: ClipboardList,
       title: "Preliminary Estimating",
       description:
@@ -42,6 +48,7 @@ const Services = () => {
       image: null,
     },
     {
+      slug: "material-takeoffs",
       icon: HardHat,
       title: "Material Takeoffs",
       description:
@@ -70,9 +77,10 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <Link
+              to={`/services/${service.slug}`}
               key={service.title}
-              className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 border border-border"
+              className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 border border-border block"
             >
               {/* Image or Icon Header */}
               {service.image ? (
@@ -101,18 +109,21 @@ const Services = () => {
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground mb-4">{service.description}</p>
-                <Button variant="link" className="p-0 h-auto text-primary">
-                  Learn More →
-                </Button>
+                <Link 
+                  to={`/services/${service.slug}`}
+                  className="inline-flex items-center text-primary font-medium hover:underline"
+                >
+                  Learn More <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <Button variant="hero" size="lg">
-            View All Services
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/services">View All Services</Link>
           </Button>
         </div>
       </div>

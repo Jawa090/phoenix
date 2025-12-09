@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const navLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "Services", href: "#services" },
-    { label: "Why Us", href: "#why-us" },
-    { label: "Process", href: "#process" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: isHomePage ? "#hero" : "/", isRoute: !isHomePage },
+    { label: "Services", href: "/services", isRoute: true },
+    { label: "Why Us", href: isHomePage ? "#why-us" : "/#why-us", isRoute: !isHomePage },
+    { label: "Process", href: isHomePage ? "#process" : "/#process", isRoute: !isHomePage },
+    { label: "Contact", href: isHomePage ? "#contact" : "/#contact", isRoute: !isHomePage },
   ];
 
   return (
@@ -18,7 +21,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 bg-accent-gradient rounded-lg flex items-center justify-center">
               <span className="font-display text-xl text-primary-foreground">P</span>
             </div>
@@ -30,18 +33,28 @@ const Navbar = () => {
                 Construction Estimating
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-secondary-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="text-secondary-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-secondary-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </div>
 
@@ -70,14 +83,25 @@ const Navbar = () => {
           <div className="lg:hidden py-4 border-t border-primary/10 animate-fade-up">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
+                link.isRoute ? (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
               <div className="pt-4 border-t border-primary/10">
                 <Button variant="hero" className="w-full">
