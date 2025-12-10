@@ -1,5 +1,6 @@
-import { Building2, Home, Factory, Hammer, ClipboardList, HardHat } from "lucide-react";
+import { Building2, Home, Factory, Hammer, ClipboardList, HardHat, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import commercialImage from "@/assets/commercial-building.jpg";
 import residentialImage from "@/assets/residential-home.jpg";
 import industrialImage from "@/assets/industrial-project.jpg";
@@ -7,6 +8,7 @@ import industrialImage from "@/assets/industrial-project.jpg";
 const Services = () => {
   const services = [
     {
+      slug: "industrial-estimating",
       icon: Factory,
       title: "Phoenix Industrial Estimating Services",
       description:
@@ -14,6 +16,7 @@ const Services = () => {
       image: industrialImage,
     },
     {
+      slug: "residential-estimating",
       icon: Home,
       title: "Residential Estimating Services in Phoenix",
       description:
@@ -21,6 +24,7 @@ const Services = () => {
       image: residentialImage,
     },
     {
+      slug: "commercial-estimating",
       icon: Building2,
       title: "Phoenix Commercial Estimating Services",
       description:
@@ -28,6 +32,7 @@ const Services = () => {
       image: commercialImage,
     },
     {
+      slug: "remodeling-estimating",
       icon: Hammer,
       title: "Remodeling and Renovation Estimating Services",
       description:
@@ -35,6 +40,7 @@ const Services = () => {
       image: residentialImage,
     },
     {
+      slug: "preliminary-estimating",
       icon: ClipboardList,
       title: "Preliminary Phoenix Estimating Services",
       description:
@@ -61,7 +67,8 @@ const Services = () => {
         {/* Services Grid */}
         <div className="flex flex-wrap justify-center gap-8">
           {services.map((service, index) => (
-            <div
+            <Link
+              to={`/services/${service.slug}`}
               key={service.title}
               className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 border border-border w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] flex flex-col"
             >
@@ -96,14 +103,14 @@ const Services = () => {
                   Learn More →
                 </Button>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <Button variant="hero" size="lg">
-            View All Services
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/services">View All Services</Link>
           </Button>
         </div>
       </div>
