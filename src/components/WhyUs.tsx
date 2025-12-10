@@ -2,11 +2,19 @@ import { Trophy, Award, MapPin, Percent, Users, Clock, Headphones } from "lucide
 
 interface CounterProps {
   end: number;
+  start?: number;
   suffix?: string;
   prefix?: string;
 }
 
-const Counter = ({ end, suffix = "", prefix = "" }: CounterProps) => {
+const Counter = ({ end, start, suffix = "", prefix = "" }: CounterProps) => {
+  if (start !== undefined) {
+    return (
+      <span className="counter-animate">
+        {prefix}<span className="counter-value">{start}</span> - <span className="counter-value">{end}</span>{suffix}
+      </span>
+    );
+  }
   return (
     <span className="counter-animate" style={{ '--end': end } as React.CSSProperties}>
       {prefix}<span className="counter-value">{end}</span>{suffix}
@@ -54,7 +62,8 @@ const WhyUs = () => {
     {
       icon: Clock,
       value: 24,
-      suffix: "hr",
+      startValue: 9,
+      suffix: " hr",
       title: "Rapid Turnaround",
       description: "Fast turnaround time ranging from 9 to 24 hours",
     },
@@ -76,16 +85,12 @@ const WhyUs = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-            Why Choose Us
-          </span>
+
           <h2 className="font-display text-4xl md:text-5xl text-primary-foreground mt-4 mb-6">
-            WHY OUTSOURCE PHOENIX CONSTRUCTION ESTIMATING?
+            WHY <span className="text-primary">OUTSOURCE</span>  PHOENIX CONSTRUCTION ESTIMATING?
           </h2>
           <p className="text-secondary-foreground/80 text-lg">
-            You can save time and resources by working with our construction
-            estimating company. We will take care of this difficult task while
-            you focus on other things.
+            You can save time and resources by working with our construction estimating company. In other words, we will take care of this difficult task while you focus on other things. Here’s how we are the best choice for you:
           </p>
         </div>
 
@@ -100,7 +105,7 @@ const WhyUs = () => {
                 <benefit.icon className="w-7 h-7 text-primary" />
               </div>
               <p className="font-display text-4xl text-primary mb-2">
-                <Counter end={benefit.value} suffix={benefit.suffix} />
+                <Counter end={benefit.value} start={(benefit as any).startValue} suffix={benefit.suffix} />
               </p>
               <h3 className="font-semibold text-primary-foreground mb-2">
                 {benefit.title}
@@ -122,7 +127,7 @@ const WhyUs = () => {
                 <benefit.icon className="w-7 h-7 text-primary" />
               </div>
               <p className="font-display text-4xl text-primary mb-2">
-                <Counter end={benefit.value} suffix={benefit.suffix} />
+                <Counter end={benefit.value} start={(benefit as any).startValue} suffix={benefit.suffix} />
               </p>
               <h3 className="font-semibold text-primary-foreground mb-2">
                 {benefit.title}

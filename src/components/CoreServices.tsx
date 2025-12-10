@@ -1,9 +1,9 @@
-import { 
-  Thermometer, 
-  DoorOpen, 
-  Layers, 
-  Box, 
-  Paintbrush, 
+import {
+  Thermometer,
+  DoorOpen,
+  Layers,
+  Box,
+  Paintbrush,
   Home,
   Wrench,
   Building,
@@ -18,64 +18,35 @@ const CoreServices = () => {
   const services = [
     {
       icon: Thermometer,
-      title: "HVAC Estimating",
-      description: "Get accurate takeoff and estimation services with detailed cost of heating and ventilation for all construction types.",
+      title: "HVAC Estimating Services",
+      description: "Get accurate takeoff and estimation services with detailed cost of heating and ventilation. We cover estimations of HVAC installations in constructions, including commercial and industrial ones. Hence, residential heating and cooling system estimates are also included.",
     },
     {
       icon: DoorOpen,
-      title: "Opening Takeoffs",
-      description: "All opening estimates including skylights, doors and windows. Have more control over your time and money.",
+      title: "Opening Takeoffs and Estimations",
+      description: "You will get all the opening estimates including skylights, doors and windows. Thus, have more control over your time and money. Save your resources with the best takeoff decisions.",
     },
     {
       icon: Layers,
       title: "Insulation Estimates",
-      description: "Estimation for all insulation gear, including fiberglass and cellulose insulation with labor and equipment costs.",
+      description: "Get an estimation for all your insulation gear, including fiberglass and cellulose insulation. Identify all the areas that need insulation, you can get a complete cost estimation. Also, this will include the labor and equipment cost as well. So, use these estimations with our accurate construction estimating services Phoenix.",
     },
     {
       icon: Box,
-      title: "Lumber & Framing",
-      description: "Specific material takeoffs and estimated cost for various kinds of lumber for framing, decking, or structural work.",
+      title: "Lumber and Framing Takeoffs",
+      description: "We provide specific material takeoffs and estimated cost for various kinds of lumber. For example, for lumber to the use in framing, decking or structural work. You will get fuss-free estimations for carrying out your projects with great success.",
     },
     {
       icon: Paintbrush,
-      title: "Finishing Estimates",
-      description: "Reliable estimates and takeoffs for external as well as interior finishes in residential or commercial setups.",
+      title: "Finishing Estimating Services",
+      description: "Find reliable estimates and takeoffs for your external as well as interior finishes. For instance, in residential or commercial setups, you can avoid cost overflows. In this way, you can stay on schedule. Above all, you can deliver your project with efficient results on time.",
     },
     {
       icon: Home,
       title: "Roofing Estimation",
-      description: "Estimations by specialized experts for roofing systems including metal, flat, and other roofing materials.",
+      description: "We give you estimations by specialized experts and tools for roofing systems. For example, roofing materials include metal, flat and others as well. So, decrease waste and get better measurements and breakdowns for projects.",
     },
-    {
-      icon: Wrench,
-      title: "Plumbing Takeoffs",
-      description: "Plumbing takeoffs for all pipes, fittings and accessories to help you plan and control costs.",
-    },
-    {
-      icon: Building,
-      title: "Metal & Steel",
-      description: "Good estimations for steel and metal work with breakdown for connections and fabrications.",
-    },
-    {
-      icon: Frame,
-      title: "Door & Windows",
-      description: "Exact takeoff measurements and cost estimation of doors and windows, covering frames and installation.",
-    },
-    {
-      icon: Mountain,
-      title: "Earthwork Estimation",
-      description: "Estimation for earthwork processes like grading and soil preparation with quantity takeoff estimates.",
-    },
-    {
-      icon: Droplets,
-      title: "Thermal/Moisture",
-      description: "Exact estimation of thermal control equipment including moisture barriers, insulation, and waterproofing.",
-    },
-    {
-      icon: Zap,
-      title: "Electrical Estimating",
-      description: "Detailed breakdowns of wiring, fixture panels, and all electrical components for reliable project planning.",
-    },
+
   ];
 
   return (
@@ -83,24 +54,18 @@ const CoreServices = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-            Specialized Services
-          </span>
+
           <h2 className="font-display text-4xl md:text-5xl text-foreground mt-4 mb-6">
-            CORE CONSTRUCTION ESTIMATION SERVICES
+            CORE <span className="text-primary">CONSTRUCTION</span> ESTIMATION SERVICES
           </h2>
-          <p className="text-muted-foreground text-lg">
-            We cover all CSI divisions with specialized expertise in every trade
-            to deliver comprehensive and accurate estimates.
-          </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {services.map((service) => (
             <div
               key={service.title}
-              className="group p-6 bg-card rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300"
+              className="group p-6 bg-card rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(25%-1.125rem)]"
             >
               <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
                 <service.icon className="w-6 h-6 text-primary" />

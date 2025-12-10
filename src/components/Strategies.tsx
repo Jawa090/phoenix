@@ -1,8 +1,8 @@
-import { 
-  MessageSquare, 
-  FileSearch, 
-  Settings2, 
-  Database, 
+import {
+  MessageSquare,
+  FileSearch,
+  Settings2,
+  Database,
   GraduationCap,
   RefreshCw,
   Shield,
@@ -17,68 +17,66 @@ const Strategies = () => {
     {
       icon: MessageSquare,
       title: "Effective Communication",
-      description: "Every interaction with clients is clear and meaningful. Our professionals focus on finding the best solutions for you.",
+      description: "We ensure that every interaction with all our clients is clear and meaningful. Therefore, our professionals focus on finding the best solutions for you.",
     },
     {
       icon: FileSearch,
       title: "Thorough Project Preparation",
-      description: "In-depth understanding of the market to study project specifications and provide reliable estimates.",
+      description: "Our professionals have in-depth understanding of the market to study the project specifications. As per the client requirements, they too provide services and reliable estimates ",
     },
     {
       icon: Settings2,
       title: "Advanced Tool Use",
-      description: "Modern industry tools and software for optimal speed and accurate results on your projects.",
+      description: "Our firm uses modern industry tools and softwares for optimal speed and results. Thus, make your project a success with construction cost estimating services Phoenix.",
     },
     {
       icon: Database,
       title: "Updated Cost Databases",
-      description: "Right pricing in the estimation process according to regions using the latest labour and material databases.",
+      description: "We ensure right pricing in the estimation process according to regions. Likewise, our team uses the latest databases for labour and material cost.",
     },
     {
       icon: GraduationCap,
       title: "Expert Training",
-      description: "Regular training sessions keep our estimators updated and aligned with evolving industry trends.",
+      description: "Training sessions are regularly held to keep our estimators and data specialists updated. Hence, it helps them align with the evolving industry trends.",
     },
     {
       icon: RefreshCw,
       title: "Regular Revisions",
-      description: "We refine our methods and techniques to keep up with changing trends and market competition.",
+      description: "We are aware of the changing trends and requirements of the construction industry. So, we refine our methods and techniques to keep up with  market competition.",
     },
     {
       icon: Shield,
       title: "Risk Management",
-      description: "Better assessment and risk management with safe cost projections you can rely upon.",
+      description: "One of our top-most priorities is better assessment and risk management. In a similar manner, we strive to come up with safe cost projections, which you can rely upon.",
     },
     {
       icon: TrendingUp,
       title: "Continued Growth",
-      description: "Every project adds to our experience. We analyze past outcomes to improve efficiency.",
+      description: "With every project adding to our experience, we improve efficiency. For example, we analyse past outcomes, becoming one of the top construction estimating services in Phoenix.",
     },
     {
       icon: Handshake,
-      title: "Building Relationships",
-      description: "Building trust through transparency and consistent service for lasting client relationships.",
+      title: "Building Client Relationships",
+      description: "Our main focus is building trust through transparency and consistent service. In conclusion, we aim to build lasting relationships with our clients.",
     },
     {
       icon: Sparkles,
       title: "Customized Solutions",
-      description: "Identifying unique needs of every project and providing tailored estimates to match your requirements.",
+      description: "We specialize in identifying the unique needs of every project such as budgets. Then, we provide tailored estimates and takeoffs to match the clients needs.",
     },
     {
       icon: CheckCircle,
-      title: "Quality Control",
-      description: "Each estimate goes through internal review to ensure it meets project requirements.",
+      title: "Quality Control Checks",
+      description: "Each of our estimates goes through an internal review. Hence, we ensure that it is according to the project requirements.",
     },
   ];
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-12 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-            Our Approach
-          </span>
+
           <h2 className="font-display text-4xl md:text-5xl text-foreground mt-4 mb-6">
             OUR STRATEGIES FOR SUCCESS
           </h2>

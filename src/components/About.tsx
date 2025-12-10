@@ -20,11 +20,11 @@ const About = () => {
               <img
                 src={estimatingImage}
                 alt="Construction estimating blueprints"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent" />
             </div>
-            
+
             {/* Floating Stats Card */}
             <div className="absolute -bottom-8 -right-8 bg-card rounded-xl p-6 shadow-elevated border border-border">
               <div className="flex items-center gap-4">
@@ -44,23 +44,15 @@ const About = () => {
 
           {/* Content Side */}
           <div>
-            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-              About Phoenix Estimating
-            </span>
+
             <h2 className="font-display text-4xl md:text-5xl text-foreground mt-4 mb-6">
-              BEST CONSTRUCTION ESTIMATING SERVICES IN PHOENIX
+              BEST <span className="text-gradient">CONSTRUCTION </span>ESTIMATING SERVICES IN PHOENIX
             </h2>
             <p className="text-muted-foreground text-lg mb-6">
-              With over 20 years of experience, we know how hard it is for
-              contractors to manage projects and save time. That is why we are
-              here. At Phoenix Construction Estimating Services, we offer clear
-              and accurate estimates for projects.
+              With over <span className="text-gradient font-bold">20 years</span> of experience, we know how hard it is for contractors to manage projects and save time. That is why we are here. At phoenix construction estimating services, we offer clear and accurate estimates for projects. You get fast turnaround times and competitive prices. These benefits make us one of the best construction estimating services phoenix. We are a trusted choice among local firms.
             </p>
             <p className="text-muted-foreground mb-8">
-              Each takeoff report includes a full material list based on your
-              project needs. We cover all CSI divisions, including lumber and
-              concrete. Our work helps you avoid miscalculations and keeps your
-              project under control.
+              Each takeoff report includes a full material list based on your project needs. We cover all CSI divisions, including lumber and concrete. Our work helps you avoid miscalculations and keeps your project under control.
             </p>
 
             {/* Stats Grid */}
@@ -75,7 +67,7 @@ const About = () => {
             </div>
 
             <Button variant="default" size="lg">
-              Learn More About Us
+              Get a Qoute
             </Button>
           </div>
         </div>

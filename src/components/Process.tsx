@@ -1,4 +1,5 @@
 import { Upload, FileText, CreditCard, FileCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Process = () => {
   const steps = [
@@ -29,35 +30,30 @@ const Process = () => {
   ];
 
   return (
-    <section id="process" className="py-24 bg-hero relative overflow-hidden">
+    <section id="process" className="py-20 bg-hero relative overflow-hidden">
       {/* Decorative Pattern */}
       <div className="absolute inset-0 pattern-diagonal opacity-50" />
-      
+
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-            How It Works
-          </span>
+
           <h2 className="font-display text-4xl md:text-5xl text-primary-foreground mt-4 mb-6">
-            HOW TO GET STARTED
+            HOW TO GET<span className="text-primary"> STARTED?</span>
           </h2>
-          <p className="text-secondary-foreground/80 text-lg">
-            Get your accurate construction estimate in just 4 simple steps.
-            Our streamlined process ensures quick turnaround times.
-          </p>
+
         </div>
 
         {/* Process Steps */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <div key={step.title} className="relative">
+            <div key={step.title} className="relative h-full">
               {/* Connector Line */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-primary to-transparent z-0" />
               )}
-              
-              <div className="relative bg-secondary/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 text-center hover:border-primary/40 transition-all duration-300 group">
+
+              <div className="relative h-full bg-secondary/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 text-center hover:border-primary/40 transition-all duration-300 group flex flex-col">
                 {/* Step Number */}
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent-gradient px-4 py-1 rounded-full">
                   <span className="font-display text-lg text-primary-foreground">{step.step}</span>
@@ -72,12 +68,50 @@ const Process = () => {
                 <h3 className="font-display text-2xl text-primary-foreground mb-4">
                   {step.title}
                 </h3>
-                <p className="text-secondary-foreground/70">
+                <p className="text-secondary-foreground/70 flex-grow">
                   {step.description}
                 </p>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-16 flex justify-center">
+          <button
+            onClick={() => {
+              const contactForm = document.getElementById('contact');
+              if (contactForm) {
+                contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            className="group relative px-12 py-5 text-lg font-semibold text-white rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          >
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary bg-[length:200%_100%] animate-gradient" />
+
+            {/* Pulsing glow effect */}
+            <div className="absolute inset-0 bg-primary/40 blur-xl animate-pulse" />
+
+            {/* Shimmer effect on hover */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+
+            {/* Button content */}
+            <span className="relative z-10 flex items-center gap-3">
+              <span className="font-display text-xl">Get a Quote</span>
+              <svg
+                className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
+
+            {/* Border glow */}
+            <div className="absolute inset-0 rounded-full border-2 border-white/20 group-hover:border-white/40 transition-colors" />
+          </button>
         </div>
       </div>
     </section>

@@ -4,6 +4,8 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import CoreServices from "@/components/CoreServices";
+import SpecializedTradeServices from "@/components/SpecializedTradeServices";
+import TrustworthySection from "@/components/TrustworthySection";
 import Strategies from "@/components/Strategies";
 import Process from "@/components/Process";
 import ContactForm from "@/components/ContactForm";
@@ -20,6 +22,8 @@ const Index = () => {
       <Services />
       <WhyUs />
       <CoreServices />
+      <SpecializedTradeServices />
+      <TrustworthySection />
       <Strategies />
       <Process />
       <Testimonials />

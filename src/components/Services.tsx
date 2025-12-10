@@ -8,46 +8,40 @@ const Services = () => {
   const services = [
     {
       icon: Factory,
-      title: "Industrial Estimating",
+      title: "Phoenix Industrial Estimating Services",
       description:
-        "Our trained engineers and estimators deliver accurate results for industrial work. We understand the complexity of these projects, so we estimate with great care.",
+        "Our trained engineers and estimators deliver accurate results for industrial work. We understand the complexity of these projects, so we estimate with great care. You receive a solid financial plan that helps you win projects and save time and resources.",
       image: industrialImage,
     },
     {
       icon: Home,
-      title: "Residential Estimating",
+      title: "Residential Estimating Services in Phoenix",
       description:
-        "If you are a residential contractor or homebuilder, we can help. Our expert construction estimators prepare detailed material lists and clear cost estimates.",
+        "If you are a residential contractor or homebuilder, we can help. Our expert construction estimators Phoenix prepare detailed material lists and clear cost estimates. Each takeoff is based on the exact needs of your project.",
       image: residentialImage,
     },
     {
       icon: Building2,
-      title: "Commercial Estimating",
+      title: "Phoenix Commercial Estimating Services",
       description:
-        "To win your next commercial project, you need reliable estimates. We provide estimates for fitness centers, resorts, and many other commercial buildings.",
+        "To win your next commercial project, you need reliable estimates. We provide estimates for fitness centers, resorts, and many other commercial buildings. You receive budget estimates, labor costs, and timelines. Our team delivers results that help you secure more bids.",
       image: commercialImage,
     },
     {
       icon: Hammer,
-      title: "Remodeling & Renovation",
+      title: "Remodeling and Renovation Estimating Services",
       description:
-        "For remodeling and repair jobs, our specialized team offers detailed and accurate estimates. We give you fast results and take into consideration your timeline.",
-      image: null,
+        "For remodeling and repair jobs, our specialized team offers detailed and accurate estimates. As one of the Top Construction Estimating Services in phoenix, we give you fast results. We also take into consideration your own timeline.",
+      image: residentialImage,
     },
     {
       icon: ClipboardList,
-      title: "Preliminary Estimating",
+      title: "Preliminary Phoenix Estimating Services",
       description:
-        "If you are still in the early planning stage, our preliminary estimates guide your budget. You save time and avoid costly design mistakes.",
-      image: null,
+        "If you are still in the early planning stage, our preliminary estimates guide your budget. You save time and avoid costly design mistakes. Our feasibility studies and quantity takeoffs also reduce the risk of errors.",
+      image: industrialImage,
     },
-    {
-      icon: HardHat,
-      title: "Material Takeoffs",
-      description:
-        "We ensure you have a clear view of your project budget with detailed material takeoffs. Our construction cost estimator is proficient in delivering estimates for all trades.",
-      image: null,
-    },
+
   ];
 
   return (
@@ -55,28 +49,25 @@ const Services = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-            Our Services
-          </span>
+
           <h2 className="font-display text-4xl md:text-5xl text-foreground mt-4 mb-6">
-            COMPREHENSIVE CONSTRUCTION ESTIMATING SERVICES
+            OUR CONSTRUCTION ESTIMATING <span className="text-gradient">
+              COMPREHENSIVE
+            </span> SERVICES
           </h2>
-          <p className="text-muted-foreground text-lg">
-            We provide accurate cost estimates for all types of construction
-            projects, helping you win more bids and complete projects on budget.
-          </p>
+
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 border border-border"
+              className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 border border-border w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] flex flex-col"
             >
               {/* Image or Icon Header */}
               {service.image ? (
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden flex-shrink-0">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -88,7 +79,7 @@ const Services = () => {
                   </div>
                 </div>
               ) : (
-                <div className="h-32 bg-hero flex items-center justify-center">
+                <div className="h-32 bg-hero flex items-center justify-center flex-shrink-0">
                   <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <service.icon className="w-8 h-8 text-primary" />
                   </div>
@@ -96,12 +87,12 @@ const Services = () => {
               )}
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="font-display text-2xl text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-4">{service.description}</p>
-                <Button variant="link" className="p-0 h-auto text-primary">
+                <p className="text-muted-foreground mb-4 flex-grow">{service.description}</p>
+                <Button variant="link" className="p-0 h-auto text-primary mt-auto self-start">
                   Learn More →
                 </Button>
               </div>
