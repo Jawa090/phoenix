@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { Sparkles, Headphones, Settings, Target, TrendingUp, Zap, FileCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ceo from "@/assets/ceo.jpeg";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const AboutUs = () => {
     const scrollToContact = () => {
@@ -211,13 +213,13 @@ const AboutUs = () => {
                             <div className="mt-10 pt-8 border-t border-border">
                                 <div className="flex items-center gap-4">
                                     <div>
-                                        <h4 className="font-display text-xl text-foreground">Johnathan Phoenix</h4>
+                                        <h4 className="font-display text-xl text-foreground">Chaudhary Usman</h4>
                                         <p className="text-primary font-medium">Founder & CEO</p>
                                     </div>
                                     <div className="ml-auto">
                                         {/* Signature placeholder (can be an image or styled text) */}
                                         <div className="font-handwriting text-3xl text-muted-foreground opacity-50 rotate-[-5deg]">
-                                            Johnathan P.
+                                            Usman Ch.
                                         </div>
                                     </div>
                                 </div>
@@ -229,17 +231,17 @@ const AboutUs = () => {
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
                                 {/* Placeholder for CEO Image - Replace with actual image asset when available */}
-                                <div className="bg-muted w-full h-[500px] flex items-center justify-center text-muted-foreground">
+                                {/* <div className="bg-muted w-full h-[500px] flex items-center justify-center text-muted-foreground">
                                     <span className="text-lg">CEO Portrait</span>
-                                </div>
-                                {/* 
-                                   To use a real image, uncomment and use this structure once the image is available:
-                                   <img 
-                                      src={ceoPortrait} 
-                                      alt="Johnathan Phoenix - CEO"
-                                      className="w-full h-[600px] object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
-                                   />
-                                */}
+                                </div> */}
+
+
+                                <img
+                                    src={ceo}
+                                    alt="Chaudhary Usman - CEO"
+                                    className="w-full h-[600px] object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
+                                />
+
 
                                 <div className="absolute bottom-8 left-8 right-8 z-20">
                                     <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl">
@@ -255,6 +257,60 @@ const AboutUs = () => {
                     </div>
                 </div>
             </section>
+            {/* FAQ Section */}
+            <section className="py-24 bg-muted/30">
+                <div className="container mx-auto px-4 lg:px-8">
+                    <div className="text-center mb-16 max-w-3xl mx-auto">
+                        <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+                            Common Questions
+                        </span>
+                        <h2 className="font-display text-4xl md:text-5xl text-foreground mt-4 mb-6">
+                            FREQUENTLY ASKED <span className="text-primary">QUESTIONS</span>
+                        </h2>
+                    </div>
+
+                    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+                        {[
+                            {
+                                q: "What makes Phoenix construction estimating services different?",
+                                a: "We stand out due to our 98% accuracy rate, 24-hour turnaround time, and a dedicated team of certified estimators who specialize in all CSI divisions."
+                            },
+                            {
+                                q: "How do you ensure the accuracy of your estimates?",
+                                a: "We use the latest estimating software combined with local market labor and material pricing databases. Our dual-layer review process ensures every number is double-checked."
+                            },
+                            {
+                                q: "What types of projects do you estimate?",
+                                a: "We handle everything from small residential renovations to large-scale commercial and industrial complexes. No project is too big or too small for our team."
+                            },
+                            {
+                                q: "Can you help if I have a rush deadline?",
+                                a: "Absolutely. We offer rush services for urgent bids. Contact us immediately, and we will prioritize your project to ensure you meet your submission deadline."
+                            },
+                            {
+                                q: "Do you provide estimates for all US states?",
+                                a: "Yes, we provide construction estimating services nationwide. We adjust our pricing data based on the specific zip code of your project location."
+                            },
+                            {
+                                q: "Is my project information kept confidential?",
+                                a: "Yes, 100%. We adhere to strict non-disclosure agreements (NDAs) and ensure your plans and project details are never shared with third parties."
+                            }
+                        ].map((faq, index) => (
+                            <Accordion key={index} type="single" collapsible className="w-full">
+                                <AccordionItem value={`item-${index}`} className="bg-card rounded-xl border border-border px-6 shadow-sm">
+                                    <AccordionTrigger className="text-left font-semibold text-lg hover:text-primary hover:no-underline py-4">
+                                        {faq.q}
+                                    </AccordionTrigger>
+                                    <AccordionContent className="text-muted-foreground pb-4 leading-relaxed">
+                                        {faq.a}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             <div id="contact-form">
                 <ContactForm />
             </div>

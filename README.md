@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+# Phoenix Construction Estimating Services
 
-## Project info
+A modern, professional website for Phoenix Construction Estimating Services - providing accurate construction estimates and material takeoffs with 98% accuracy and 24-hour turnaround.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## About
 
-## How can I edit this code?
+Phoenix Construction Estimating Services is a leading construction estimating firm specializing in:
+- Residential Estimating
+- Commercial Estimating
+- Industrial Estimating
+- MEP Estimating
+- Electrical Estimating
+- Construction Takeoff Services
 
-There are several ways of editing your application.
+## Technologies Used
 
-**Use Lovable**
+This project is built with modern web technologies:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Vite** - Fast build tool and development server
+- **TypeScript** - Type-safe JavaScript
+- **React** - UI component library
+- **React Router** - Client-side routing
+- **shadcn-ui** - Beautiful, accessible UI components
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Icon library
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js (v16 or higher)
+- npm or yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone <repository-url>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd phoenix
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```sh
+# Create an optimized production build
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Preview the production build locally
+npm run preview
+```
 
-## What technologies are used for this project?
+## Project Structure
 
-This project is built with:
+```
+phoenix/
+├── src/
+│   ├── assets/          # Images and static assets
+│   ├── components/      # Reusable React components
+│   ├── data/           # Service data and content
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utility functions
+│   ├── pages/          # Page components
+│   └── App.tsx         # Main application component
+├── public/             # Public static files
+└── index.html          # HTML entry point
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Features
 
-## How can I deploy this project?
+- **Responsive Design** - Fully responsive across all devices
+- **SEO Optimized** - Proper meta tags and semantic HTML
+- **Fast Performance** - Optimized images and code splitting
+- **Smooth Navigation** - Client-side routing with scroll management
+- **Contact Forms** - Multiple contact points throughout the site
+- **Service Pages** - Detailed information for each service offering
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Contact
 
-## Can I connect a custom domain to my Lovable project?
+For questions or support regarding this website:
+- **Phone**: (718) 719-6171
+- **Email**: info@phoenixestimating.com
+- **Location**: Phoenix, Arizona, USA
 
-Yes, you can!
+## License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2024 Phoenix Construction Estimating Services. All rights reserved.

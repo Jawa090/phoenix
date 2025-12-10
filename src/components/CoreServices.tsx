@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   Thermometer,
   DoorOpen,
@@ -15,6 +16,16 @@ import {
 import { Button } from "@/components/ui/button";
 
 const CoreServices = () => {
+  const navigate = useNavigate();
+
+  const scrollToContact = () => {
+    const contactForm = document.getElementById('contact');
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      navigate('/contact');
+    }
+  };
   const services = [
     {
       icon: Thermometer,
@@ -85,7 +96,7 @@ const CoreServices = () => {
           <p className="text-muted-foreground mb-6">
             Need a specific service not listed here? We cover all construction trades.
           </p>
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" onClick={scrollToContact}>
             Contact Us for Custom Estimates
           </Button>
         </div>

@@ -1,20 +1,15 @@
 import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
+import { services } from "@/data/services";
 
 const Footer = () => {
-  const services = [
-    "Residential Estimating",
-    "Commercial Estimating",
-    "Industrial Estimating",
-    "Material Takeoffs",
-    "HVAC Estimating",
-    "Electrical Estimating",
-  ];
+  // We'll show the same 6 services
+  const footerServices = services.slice(0, 6);
 
   const quickLinks = [
-    { label: "About Us", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Process", href: "#process" },
-    { label: "Contact", href: "#contact" },
+    { label: "About Us", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Contact", href: "/contact" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms of Service", href: "/terms-of-service" },
   ];
@@ -68,14 +63,14 @@ const Footer = () => {
               OUR SERVICES
             </h3>
             <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service}>
-                  <a
-                    href="#services"
+              {footerServices.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    to={`/services/${service.slug}`}
                     className="text-secondary-foreground/70 hover:text-primary transition-colors"
                   >
-                    {service}
-                  </a>
+                    {service.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -89,12 +84,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-secondary-foreground/70 hover:text-primary transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,8 +105,8 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-primary mt-0.5" />
                 <div>
                   <p className="text-secondary-foreground/70 text-sm">Phone</p>
-                  <a href="tel:+1234567890" className="hover:text-primary transition-colors">
-                    (123) 456-7890
+                  <a href="tel:+17187196171" className="hover:text-primary transition-colors">
+                    (718) 719-6171
                   </a>
                 </div>
               </div>

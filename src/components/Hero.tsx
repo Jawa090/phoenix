@@ -1,9 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@/assets/hero-construction.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
 
+  const scrollToContact = () => {
+    const contactForm = document.getElementById('contact');
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      navigate('/contact');
+    }
+  };
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-20">
@@ -39,12 +49,12 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up delay-400">
-            <Button variant="hero" size="lg">
+            <Button variant="hero" size="lg" onClick={scrollToContact}>
               Schedule a Meeting
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button variant="heroOutline" size="lg">
-              Call Now
+            <Button variant="heroOutline" size="lg" asChild>
+              <a href="tel:+17187196171">Call Now</a>
             </Button>
           </div>
 

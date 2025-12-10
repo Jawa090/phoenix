@@ -1,21 +1,16 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { services } from "@/data/services";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const services = [
-    { label: "Construction Estimating", href: "/services/construction-estimating" },
-    { label: "Residential Estimating", href: "/services/residential-estimating" },
-    { label: "Commercial Estimating", href: "/services/commercial-estimating" },
-    { label: "Industrial Estimating", href: "/services/industrial-estimating" },
-    { label: "Remodeling Estimating", href: "/services/remodeling-estimating" },
-  ];
-
+  // Trades list remains hardcoded for now as requested only services update
   const trades = [
     { label: "Plumbing Takeoffs", href: "/trades/plumbing" },
     { label: "Metal & Steel", href: "/trades/metal-steel" },
@@ -34,6 +29,8 @@ const Navbar = () => {
     const contactForm = document.getElementById('contact');
     if (contactForm) {
       contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      navigate("/contact");
     }
   };
 
@@ -73,7 +70,7 @@ const Navbar = () => {
 
             {/* Services Dropdown */}
             <div
-              className="relative"
+              className="relative h-full flex items-center"
               onMouseEnter={() => setActiveDropdown("services")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -90,56 +87,62 @@ const Navbar = () => {
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </Link>
 
-              {/* Services Dropdown Menu */}
+              {/* Services Dropdown Menu - Fixed with transparent bridge */}
               {activeDropdown === "services" && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-elevated py-2 animate-fade-up">
-                  {services.map((service) => (
-                    <Link
-                      key={service.href}
-                      to={service.href}
-                      className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
-                    >
-                      {service.label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 pt-2 w-72 animate-fade-up">
+                  <div className="bg-card border border-border rounded-xl shadow-elevated py-2 max-h-[80vh] overflow-y-auto">
+                    {services.map((service) => (
+                      <Link
+                        key={service.slug}
+                        to={`/services/${service.slug}`}
+                        className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors text-sm"
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
 
-            {/* Trades Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setActiveDropdown("trades")}
-              onMouseLeave={() => setActiveDropdown(null)}
+            {/* Portfolio */}
+            <Link
+              to="/portfolio"
+              className={`relative px-4 py-2 text-secondary-foreground/80 hover:text-primary transition-colors duration-200 font-medium group ${isActive("/portfolio") ? "text-primary" : ""
+                }`}
             >
-              <Link
-                to="/trades"
-                className={`flex items-center gap-1 px-4 py-2 text-secondary-foreground/80 hover:text-primary transition-colors duration-200 font-medium group ${isActive("/trades") ? "text-primary" : ""
-                  }`}
-              >
-                Trades
-                <ChevronDown className="w-4 h-4" />
-                {isActive("/trades") && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
-                )}
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-              </Link>
-
-              {/* Trades Dropdown Menu */}
-              {activeDropdown === "trades" && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-elevated py-2 animate-fade-up">
-                  {trades.map((trade) => (
-                    <Link
-                      key={trade.href}
-                      to={trade.href}
-                      className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
-                    >
-                      {trade.label}
-                    </Link>
-                  ))}
-                </div>
+              Portfolio
+              {isActive("/portfolio") && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
               )}
-            </div>
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </Link>
+
+            {/* Samples */}
+            <Link
+              to="/samples"
+              className={`relative px-4 py-2 text-secondary-foreground/80 hover:text-primary transition-colors duration-200 font-medium group ${isActive("/samples") ? "text-primary" : ""
+                }`}
+            >
+              Samples
+              {isActive("/samples") && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
+              )}
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </Link>
+
+            {/* Pricing */}
+            <Link
+              to="/pricing"
+              className={`relative px-4 py-2 text-secondary-foreground/80 hover:text-primary transition-colors duration-200 font-medium group ${isActive("/pricing") ? "text-primary" : ""
+                }`}
+            >
+              Pricing
+              {isActive("/pricing") && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
+              )}
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </Link>
 
             {/* About Us */}
             <Link
@@ -207,12 +210,27 @@ const Navbar = () => {
                 Services
               </Link>
               <Link
-                to="/trades"
+                to="/portfolio"
                 className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Trades
+                Portfolio
               </Link>
+              <Link
+                to="/samples"
+                className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Samples
+              </Link>
+              <Link
+                to="/pricing"
+                className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Pricing
+              </Link>
+
               <Link
                 to="/about"
                 className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"

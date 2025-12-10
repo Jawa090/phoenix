@@ -1,8 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, Target } from "lucide-react";
 import estimatingImage from "@/assets/estimating-plans.jpg";
 
 const About = () => {
+  const navigate = useNavigate();
+
+  const scrollToContact = () => {
+    const contactForm = document.getElementById('contact');
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      navigate('/contact');
+    }
+  };
   const stats = [
     { icon: Award, value: "20+", label: "Years Experience" },
     { icon: Users, value: "500+", label: "Happy Clients" },
@@ -66,8 +77,8 @@ const About = () => {
               ))}
             </div>
 
-            <Button variant="default" size="lg">
-              Get a Qoute
+            <Button variant="default" size="lg" onClick={scrollToContact}>
+              Get Free Quote
             </Button>
           </div>
         </div>
