@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload, Send, Phone, Mail, MapPin, CheckCircle2 } from "lucide-react";
+import { Upload, Send, Phone, Mail, MapPin, CheckCircle2, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import confetti from "canvas-confetti";
+import { submitToGoogleSheet } from "@/lib/google-sheets";
+import { GOOGLE_SCRIPT_URL } from "@/lib/constants";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -16,6 +18,7 @@ const ContactForm = () => {
     message: "",
   });
   const [file, setFile] = useState<File | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -40,8 +43,22 @@ const ContactForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+
+    // Submit to Google Sheets
+    const success = await submitToGoogleSheet(formData, file, GOOGLE_SCRIPT_URL);
+
+    if (!success) {
+      toast({
+        title: "Submission failed",
+        description: "Please check your internet connection and try again.",
+        variant: "destructive",
+      });
+      setIsLoading(false);
+      return;
+    }
 
     // Trigger confetti animation
     const duration = 5 * 1000;
@@ -78,6 +95,7 @@ const ContactForm = () => {
     });
     setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
     setFile(null);
+    setIsLoading(false);
   };
 
   const contactInfo = [
@@ -94,7 +112,7 @@ const ContactForm = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-hero relative overflow-hidden">
+    <section id="contact" className="py-20 pb-24 md:pb-20 bg-hero relative overflow-hidden">
       {/* Amazing Animated Background */}
 
       {/* Animated grid pattern */}
@@ -127,7 +145,7 @@ const ContactForm = () => {
         }} />
       </div>
 
-      <div className="container mx-auto px-8 lg:px-16 xl:px-24 relative z-10">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-24 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <h2 className="font-display text-4xl md:text-5xl text-white mb-4">
@@ -139,16 +157,16 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <div className="grid lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
             {/* Left Side - Contact Info (Smaller) */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-6 lg:space-y-8">
               {/* Contact Cards */}
               <div className="space-y-4">
                 {contactInfo.map((item) => (
                   <a
                     key={item.label}
                     href={item.link || "#"}
-                    className="group flex items-center gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300"
+                    className="group flex items-center gap-4 p-4 lg:p-6 bg-card rounded-xl border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300"
                   >
                     <div className="w-12 h-12 bg-primary/10 group-hover:bg-primary/20 rounded-lg flex items-center justify-center transition-colors flex-shrink-0">
                       <item.icon className="w-6 h-6 text-primary" />
@@ -283,9 +301,18 @@ const ContactForm = () => {
                   </div>
 
                   {/* Submit Button */}
-                  <Button variant="hero" size="lg" className="w-full group">
-                    <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                    Get Estimation Now
+                  <Button variant="hero" size="lg" className="w-full group" disabled={isLoading}>
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                        Get Estimation Now
+                      </>
+                    )}
                   </Button>
 
                   {/* Privacy Note */}
