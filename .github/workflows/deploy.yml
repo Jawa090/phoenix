@@ -1,4 +1,4 @@
-name: Phonix estimating
+name: Phonixestimating  Deploy
 
 on:
   push:
@@ -7,18 +7,16 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
-      
+
     - name: Deploy to Server
-      uses: appleboy/ssh-action@v1.0.3
+      uses: appleboy/ssh-action@v0.1.10
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.VPS_SSH_KEY }}
-        port: 22
-        debug: true
         script: |
           bash /home/deploy/deploy.sh
