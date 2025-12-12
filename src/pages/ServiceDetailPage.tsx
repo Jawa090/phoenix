@@ -99,9 +99,9 @@ const ServiceDetailPage = () => {
                                     <Link to="/contact">Get Free Estimate</Link>
                                 </Button>
                                 <Button variant="outline" size="lg" className="h-14 px-8 text-lg border-primary/20 hover:bg-primary/10 text-white hover:text-primary" asChild>
-                                    <a href="tel:+17187196171">
+                                    <a href="tel:+12128122993">
                                         <Phone className="w-5 h-5 mr-2" />
-                                        (718) 719-6171
+                                        (212) 812-2993
                                     </a>
                                 </Button>
                             </div>
@@ -263,9 +263,9 @@ const ServiceDetailPage = () => {
                             asChild
                             className="h-16 px-10 text-lg font-bold border-2 border-white text-white hover:bg-white hover:text-primary hover:scale-105 transition-all duration-300 bg-transparent"
                         >
-                            <a href="tel:+17187196171">
+                            <a href="tel:+12128122993">
                                 <Phone className="w-5 h-5 mr-3" />
-                                (718) 719-6171
+                                (212) 812-2993
                             </a>
                         </Button>
                     </div>

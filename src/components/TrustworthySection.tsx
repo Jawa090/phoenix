@@ -103,14 +103,14 @@ const TrustworthySection = () => {
                         }}
                         className="group"
                     >
-                        Get a Quote
+                        Get Estimation Now
                         <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                     </Button>
 
                     <Button
                         variant="outline"
                         size="lg"
-                        onClick={() => window.location.href = 'tel:+17187196171'}
+                        onClick={() => window.location.href = 'tel:+12128122993'}
                         className="group"
                     >
                         <Phone className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />

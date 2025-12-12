@@ -1,13 +1,88 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Send, Clock, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Clock, CheckCircle2, Upload } from "lucide-react";
 import servicesHero from "@/assets/services-hero.jpg";
 import phoenixSkyline from "@/assets/phoenix_skyline_contact.png";
+import { useToast } from "@/hooks/use-toast";
+import confetti from "canvas-confetti";
 
 const ContactPage = () => {
+    const { toast } = useToast();
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        zipCode: "",
+        message: "",
+    });
+    const [file, setFile] = useState<File | null>(null);
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            const selectedFile = e.target.files[0];
+            if (selectedFile.type === "application/pdf") {
+                setFile(selectedFile);
+                toast({
+                    title: "File uploaded successfully",
+                    description: selectedFile.name,
+                });
+            } else {
+                toast({
+                    title: "Invalid file type",
+                    description: "Please upload a PDF file",
+                    variant: "destructive",
+                });
+            }
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        // Trigger confetti animation
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        const randomInRange = (min: number, max: number) => {
+            return Math.random() * (max - min) + min;
+        }
+
+        const interval: any = setInterval(function () {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+            confetti({
+                ...defaults,
+                particleCount,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+            });
+            confetti({
+                ...defaults,
+                particleCount,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+            });
+        }, 250);
+
+        toast({
+            title: "Estimation sent successfully",
+            description: "We'll get back to you within 24 hours with your estimate.",
+        });
+        setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
+        setFile(null);
+    };
     return (
         <div className="min-h-screen bg-background">
             <Navbar />
@@ -31,7 +106,8 @@ const ContactPage = () => {
                         CONTACT <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-200">US</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto animate-fade-up delay-200">
-                        Have a project in mind? Reach out to our team of experts for a free consultation and quote.
+                        If you too are looking for the best solution for your estimation cost services, Phoenix construction estimating services is the answer for you. Call us today or book a meeting and start winning more projects!
+
                     </p>
                 </div>
             </section>
@@ -59,7 +135,7 @@ const ContactPage = () => {
                                     </div>
                                     <h3 className="font-bold text-base mb-1">Phone</h3>
                                     <p className="text-muted-foreground text-xs mb-1">Mon-Fri from 8am to 6pm</p>
-                                    <a href="tel:+17187196171" className="text-primary font-semibold hover:underline text-sm">(718) 719-6171</a>
+                                    <a href="tel:+12128122993" className="text-primary font-semibold hover:underline text-sm">(212) 812-2993</a>
                                 </div>
 
                                 <div className="bg-card p-4 rounded-xl border border-border shadow-sm hover:border-primary/50 transition-colors group">
@@ -78,7 +154,7 @@ const ContactPage = () => {
                                         </div>
                                         <div>
                                             <h3 className="font-bold text-base mb-1">Office Location</h3>
-                                            <p className="text-muted-foreground mb-0.5 text-sm">Phoenix, Arizona</p>
+                                            <p className="text-muted-foreground mb-0.5 text-sm">1655 E University Dr, Tempe, Arizona, 85288, USA</p>
                                             <p className="text-muted-foreground text-xs">Serving clients nationwide across the United States.</p>
                                         </div>
                                     </div>
@@ -88,7 +164,7 @@ const ContactPage = () => {
                             {/* Map Container (Compacted) */}
                             <div className="rounded-xl overflow-hidden shadow-lg border border-border h-[250px] relative bg-muted">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212270.7865261356!2d-112.20038837500001!3d33.4754774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b12ed50a179cb%3A0x8c69c7f8354a1bac!2sPhoenix%2C%20AZ!5e0!3m2!1sen!2sus!4v1709658097123!5m2!1sen!2sus"
+                                    src="https://maps.google.com/maps?q=1655%20E%20University%20Dr%2C%20Tempe%2C%20Arizona%2C%2085288%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
@@ -108,36 +184,99 @@ const ContactPage = () => {
                                     <p className="text-gray-500 text-sm">Fill out the form below and we'll get back to you shortly.</p>
                                 </div>
 
-                                <form className="space-y-4">
+                                <form onSubmit={handleSubmit} className="space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1.5">
                                             <label className="text-xs font-bold text-[#1e2b4d] uppercase">Name</label>
-                                            <Input placeholder="John Doe" className="bg-gray-50 border-gray-200 h-10 focus:ring-primary focus:border-primary" />
+                                            <Input
+                                                name="name"
+                                                placeholder="John Doe"
+                                                value={formData.name}
+                                                onChange={handleChange}
+                                                required
+                                                className="bg-gray-50 border-gray-200 h-10 focus:ring-primary focus:border-primary"
+                                            />
                                         </div>
                                         <div className="space-y-1.5">
                                             <label className="text-xs font-bold text-[#1e2b4d] uppercase">Phone</label>
-                                            <Input placeholder="(555) 000-0000" type="tel" className="bg-gray-50 border-gray-200 h-10 focus:ring-primary focus:border-primary" />
+                                            <Input
+                                                name="phone"
+                                                placeholder="(123) 456-7890"
+                                                type="tel"
+                                                value={formData.phone}
+                                                onChange={handleChange}
+                                                required
+                                                className="bg-gray-50 border-gray-200 h-10 focus:ring-primary focus:border-primary"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-bold text-[#1e2b4d] uppercase">Email</label>
+                                            <Input
+                                                name="email"
+                                                placeholder="john@example.com"
+                                                type="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                required
+                                                className="bg-gray-50 border-gray-200 h-10 focus:ring-primary focus:border-primary"
+                                            />
+                                        </div>
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-bold text-[#1e2b4d] uppercase">ZIP Code</label>
+                                            <Input
+                                                name="zipCode"
+                                                placeholder="85001"
+                                                value={formData.zipCode}
+                                                onChange={handleChange}
+                                                className="bg-gray-50 border-gray-200 h-10 focus:ring-primary focus:border-primary"
+                                            />
                                         </div>
                                     </div>
 
                                     <div className="space-y-1.5">
-                                        <label className="text-xs font-bold text-[#1e2b4d] uppercase">Email</label>
-                                        <Input placeholder="john@example.com" type="email" className="bg-gray-50 border-gray-200 h-10 focus:ring-primary focus:border-primary" />
+                                        <label className="text-xs font-bold text-[#1e2b4d] uppercase">Project Details</label>
+                                        <Textarea
+                                            name="message"
+                                            placeholder="Tell us about your project..."
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            className="bg-gray-50 border-gray-200 min-h-[120px] resize-none focus:ring-primary focus:border-primary"
+                                        />
                                     </div>
 
+                                    {/* File Upload */}
                                     <div className="space-y-1.5">
-                                        <label className="text-xs font-bold text-[#1e2b4d] uppercase">Project Type</label>
-                                        <Input placeholder="Residential, Commercial, etc." className="bg-gray-50 border-gray-200 h-10 focus:ring-primary focus:border-primary" />
+                                        <label className="text-xs font-bold text-[#1e2b4d] uppercase">
+                                            Upload Plans (Optional)
+                                        </label>
+                                        <div
+                                            className="border-2 border-dashed border-gray-200 rounded-lg p-4 text-center hover:border-primary/50 transition-colors cursor-pointer group relative bg-gray-50"
+                                            onClick={() => document.getElementById('contact-page-file-upload')?.click()}
+                                        >
+                                            <input
+                                                type="file"
+                                                id="contact-page-file-upload"
+                                                className="hidden"
+                                                accept=".pdf"
+                                                onChange={handleFileChange}
+                                            />
+                                            <Upload className="w-6 h-6 text-muted-foreground mx-auto mb-1 group-hover:text-primary transition-colors" />
+                                            <p className="text-muted-foreground text-xs">
+                                                {file ? (
+                                                    <span className="text-primary font-medium">{file.name}</span>
+                                                ) : (
+                                                    <>Drop files or <span className="text-primary font-medium">browse</span> (PDF only)</>
+                                                )}
+                                            </p>
+                                        </div>
                                     </div>
 
-                                    <div className="space-y-1.5">
-                                        <label className="text-xs font-bold text-[#1e2b4d] uppercase">Message</label>
-                                        <Textarea placeholder="Tell us about your project..." className="bg-gray-50 border-gray-200 min-h-[120px] resize-none focus:ring-primary focus:border-primary" />
-                                    </div>
-
-                                    <Button className="w-full h-12 text-base font-bold bg-[#1e2b4d] hover:bg-[#1e2b4d]/90 shadow-lg mt-2">
-                                        Send Message
-                                        <Send className="w-4 h-4 ml-2" />
+                                    <Button className="w-full h-12 text-base font-bold bg-[#1e2b4d] hover:bg-[#1e2b4d]/90 shadow-lg mt-2 group">
+                                        Get Estimation Now
+                                        <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </Button>
                                 </form>
                             </div>

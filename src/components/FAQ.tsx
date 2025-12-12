@@ -6,25 +6,44 @@ import {
 } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
 
-const FAQ = () => {
-  const faqs = [
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface FAQProps {
+  items?: FAQItem[];
+}
+
+const FAQ = ({ items }: FAQProps) => {
+  const defaultFaqs = [
     {
       question: "Will our information be safe with you?",
       answer: "Yes, we keep all our client information confidential. Your project details are secure within our database. We provide the best construction estimating services Phoenix without involving third parties. Hence, we also don't share your data with third parties, keeping client privacy a priority.",
     },
     {
-      question: "How do you deal with fluctuating material costs with Phoenix construction estimating services?",
-      answer: "The databases we use are all updated through reliable industry resources. Besides, we take into account other factors, like cost changes as well. Providing the latest labour and material rates is our focus in this regard.",
+      question: "Can I ask for a personalized response according to my specific goals?",
+      answer: "Yes, you can ask for a quote based on  your personal goals. Our team of professionals looks toward identifying unique elements of your project to help you build a plan.",
     },
     {
-      question: "Are remodeling project estimations included in your services?",
-      answer: "Yes! We handle projects that need complete construction as well as redoing. We provide cost estimates on renovations, additions and updates too. Thus, the estimates and takeoffs are reliable in our construction estimating Phoenix services.",
+      question: "Through what ways can I pay securely for your services?",
+      answer: "We have multiple payment options for your convenience. You can pay through a credit card, payPal or Debit Card to ensure secure payments.",
     },
     {
       question: "In what format do you give the final estimate to the clients?",
       answer: "We provide the estimates according to client demand in many formats. These include formats such as PDF, DWF and other specialized software. Among these, we ensure the data lays out in a way that is easy to understand.",
     },
+    {
+      question: "What is the accuracy of your estimates?",
+      answer: "Our team consists of certified estimators who use industry-leading software and live pricing databases. We maintain a high accuracy rate by accounting for labor, material, and local market trends."
+    },
+    {
+      question: "How long does it take to get an estimate?",
+      answer: "We aim to provide a detailed estimate within 2-4 business days for most residential projects. For larger commercial projects, we will provide you with a timeline upon reviewing the plans."
+    }
   ];
+
+  const faqs = items || defaultFaqs;
 
   return (
     <section className="py-20 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">

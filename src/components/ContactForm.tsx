@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Upload, Send, Phone, Mail, MapPin, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import confetti from "canvas-confetti";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -14,24 +15,75 @@ const ContactForm = () => {
     zipCode: "",
     message: "",
   });
+  const [file, setFile] = useState<File | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Quote Request Submitted!",
-      description: "We'll get back to you within 24 hours with your estimate.",
-    });
-    setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const selectedFile = e.target.files[0];
+      if (selectedFile.type === "application/pdf") {
+        setFile(selectedFile);
+        toast({
+          title: "File uploaded successfully",
+          description: selectedFile.name,
+        });
+      } else {
+        toast({
+          title: "Invalid file type",
+          description: "Please upload a PDF file",
+          variant: "destructive",
+        });
+      }
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Trigger confetti animation
+    const duration = 5 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    const randomInRange = (min: number, max: number) => {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval: any = setInterval(function () {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      });
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      });
+    }, 250);
+
+    toast({
+      title: "Estimation sent successfully",
+      description: "We'll get back to you within 24 hours with your estimate.",
+    });
+    setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
+    setFile(null);
+  };
+
   const contactInfo = [
-    { icon: Phone, label: "Phone", value: "(718) 719-6171", link: "tel:+17187196171" },
+    { icon: Phone, label: "Phone", value: "(212) 812-2993", link: "tel:+12128122993" },
     { icon: Mail, label: "Email", value: "info@phoenixestimating.com", link: "mailto:info@phoenixestimating.com" },
-    { icon: MapPin, label: "Location", value: "Phoenix, Arizona, USA" },
+    { icon: MapPin, label: "Location", value: "1655 E University Dr, Tempe, Arizona, 85288, USA" },
   ];
 
   const features = [
@@ -79,7 +131,7 @@ const ContactForm = () => {
         {/* Section Header */}
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <h2 className="font-display text-4xl md:text-5xl text-white mb-4">
-            GET YOUR <span className="text-primary">FREE QUOTE</span>
+            GET YOUR <span className="text-primary">ESTIMATION NOW</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             Submit your plans and receive an accurate estimate within 24 hours
@@ -208,10 +260,24 @@ const ContactForm = () => {
                     <label className="block text-xs font-medium text-muted-foreground mb-1.5">
                       Upload Plans (Optional)
                     </label>
-                    <div className="border-2 border-dashed border-border rounded-lg p-4 text-center hover:border-primary/50 transition-colors cursor-pointer group">
+                    <div
+                      className="border-2 border-dashed border-border rounded-lg p-4 text-center hover:border-primary/50 transition-colors cursor-pointer group relative"
+                      onClick={() => document.getElementById('file-upload')?.click()}
+                    >
+                      <input
+                        type="file"
+                        id="file-upload"
+                        className="hidden"
+                        accept=".pdf"
+                        onChange={handleFileChange}
+                      />
                       <Upload className="w-6 h-6 text-muted-foreground mx-auto mb-1 group-hover:text-primary transition-colors" />
                       <p className="text-muted-foreground text-xs">
-                        Drop files or <span className="text-primary font-medium">browse</span>
+                        {file ? (
+                          <span className="text-primary font-medium">{file.name}</span>
+                        ) : (
+                          <>Drop files or <span className="text-primary font-medium">browse</span> (PDF only)</>
+                        )}
                       </p>
                     </div>
                   </div>
@@ -219,7 +285,7 @@ const ContactForm = () => {
                   {/* Submit Button */}
                   <Button variant="hero" size="lg" className="w-full group">
                     <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                    Get Free Quote
+                    Get Estimation Now
                   </Button>
 
                   {/* Privacy Note */}

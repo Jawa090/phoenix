@@ -40,7 +40,7 @@ const Services = () => {
                 size="lg"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Get Free Quote
+                Get Estimation Now
               </Button>
             </div>
           </div>
@@ -155,7 +155,7 @@ const Services = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full -mr-4 -mt-4 opacity-50 pointer-events-none"></div>
 
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-[#1e2b4d] font-display">Get Your Free Quote</h3>
+                <h3 className="text-2xl font-bold text-[#1e2b4d] font-display">Get Estimation Now</h3>
                 <p className="text-gray-500 text-sm">Fill out the form below and we'll get back to you within 24 hours.</p>
               </div>
 
@@ -196,7 +196,7 @@ const Services = () => {
                 </div>
 
                 <Button className="w-full bg-[#1e2b4d] hover:bg-[#1e2b4d]/90 text-white font-bold h-12 text-lg shadow-lg hover:shadow-xl transition-all">
-                  Request Quote Now
+                  Get Estimation Now
                 </Button>
               </form>
             </div>
@@ -297,9 +297,9 @@ const Services = () => {
                   className="w-full sm:w-52 h-12 text-sm font-bold bg-transparent border border-white/20 text-white hover:bg-white hover:text-[#1e2b4d] hover:border-white transition-all duration-300 rounded-lg"
                   asChild
                 >
-                  <a href="tel:+17187196171">
+                  <a href="tel:+12128122993">
                     <Phone className="w-4 h-4 mr-2" />
-                    CALL (718) 719-6171
+                    CALL (212) 812-2993
                   </a>
                 </Button>
               </div>

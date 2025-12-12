@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   // We'll show the same 6 services
@@ -8,7 +9,9 @@ const Footer = () => {
 
   const quickLinks = [
     { label: "About Us", href: "/about" },
-    { label: "Services", href: "/services" },
+    { label: "About Us", href: "/about" },
+    // { label: "Services", href: "/services" },
+    { label: "Contact", href: "/contact" },
     { label: "Contact", href: "/contact" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms of Service", href: "/terms-of-service" },
@@ -29,13 +32,11 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-accent-gradient rounded-lg flex items-center justify-center">
-                <span className="font-display text-xl text-primary-foreground">P</span>
-              </div>
+              <img src={logo} alt="Phoenix Logo" className="w-[80px] h-[80px] object-contain" />
               <div>
-                <span className="font-display text-xl text-primary-foreground">PHOENIX</span>
-                <span className="block text-xs text-muted-foreground -mt-1">
-                  Construction Estimating
+                <span className="font-display text-xl text-primary font-bold tracking-normal leading-none block">PHOENIX</span>
+                <span className="block text-[0.5rem] text-white tracking-[0.54em] uppercase font-medium leading-none ml-[1px] mt-1">
+                  ESTIMATING
                 </span>
               </div>
             </div>
@@ -58,7 +59,8 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          {/* Services */}
+          {/* <div>
             <h3 className="font-display text-xl text-primary-foreground mb-6">
               OUR SERVICES
             </h3>
@@ -74,7 +76,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Quick Links */}
           <div>
@@ -105,8 +107,8 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-primary mt-0.5" />
                 <div>
                   <p className="text-secondary-foreground/70 text-sm">Phone</p>
-                  <a href="tel:+17187196171" className="hover:text-primary transition-colors">
-                    (718) 719-6171
+                  <a href="tel:+12128122993" className="hover:text-primary transition-colors">
+                    (212) 812-2993
                   </a>
                 </div>
               </div>
@@ -123,7 +125,7 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-primary mt-0.5" />
                 <div>
                   <p className="text-secondary-foreground/70 text-sm">Location</p>
-                  <p>Phoenix, Arizona, USA</p>
+                  <p>1655 E University Dr, Tempe, Arizona, 85288, USA</p>
                 </div>
               </div>
             </div>

@@ -98,7 +98,7 @@ const AboutUs = () => {
                                 size="lg"
                                 className="text-lg px-8 py-6 rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all duration-300 group"
                             >
-                                Get a Quote
+                                Get Estimation Now
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </div>

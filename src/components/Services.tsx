@@ -21,8 +21,8 @@ const Services = () => {
         {/* Services Grid */}
         <div className="flex flex-wrap justify-center gap-8">
           {featuredServices.map((service, index) => (
-            <Link
-              to={`/services/${service.slug}`}
+            <div
+              // to={`/services/${service.slug}`}
               key={service.title}
               className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 border border-border w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] flex flex-col"
             >
@@ -45,18 +45,22 @@ const Services = () => {
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground mb-6 flex-grow line-clamp-4 leading-relaxed">{service.description}</p>
-                <Button variant="link" className="p-0 h-auto text-primary mt-auto self-start font-bold uppercase tracking-wide">
+                {/* <Button variant="link" className="p-0 h-auto text-primary mt-auto self-start font-bold uppercase tracking-wide">
                   Learn More →
-                </Button>
+                </Button> */}
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <Button variant="hero" size="lg" asChild>
-            <Link to="/services">View All Services</Link>
+          <Button
+            variant="hero"
+            size="lg"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Get Estimation Now
           </Button>
         </div>
       </div>

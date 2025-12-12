@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload, Send, ArrowRight } from "lucide-react";
+import { Upload, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import confetti from "canvas-confetti";
 
 interface ProcessStep {
     title: string;
@@ -23,18 +24,69 @@ const ProcessFormSection: React.FC<ProcessFormSectionProps> = ({ steps }) => {
         zipCode: "",
         message: "",
     });
+    const [file, setFile] = useState<File | null>(null);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        toast({
-            title: "Quote Request Submitted!",
-            description: "We'll get back to you within 24 hours with your estimate.",
-        });
-        setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            const selectedFile = e.target.files[0];
+            if (selectedFile.type === "application/pdf") {
+                setFile(selectedFile);
+                toast({
+                    title: "File uploaded successfully",
+                    description: selectedFile.name,
+                });
+            } else {
+                toast({
+                    title: "Invalid file type",
+                    description: "Please upload a PDF file",
+                    variant: "destructive",
+                });
+            }
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        // Trigger confetti animation
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        const randomInRange = (min: number, max: number) => {
+            return Math.random() * (max - min) + min;
+        }
+
+        const interval: any = setInterval(function () {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+            confetti({
+                ...defaults,
+                particleCount,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+            });
+            confetti({
+                ...defaults,
+                particleCount,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+            });
+        }, 250);
+
+        toast({
+            title: "Estimation sent successfully",
+            description: "We'll get back to you within 24 hours with your estimate.",
+        });
+        setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
+        setFile(null);
     };
 
     return (
@@ -84,7 +136,7 @@ const ProcessFormSection: React.FC<ProcessFormSectionProps> = ({ steps }) => {
 
                         <div className="relative z-10">
                             <h3 className="font-display text-2xl text-foreground mb-4">
-                                Get Your Free Quote
+                                Get Estimation Now
                             </h3>
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div className="grid sm:grid-cols-2 gap-3">
@@ -152,20 +204,34 @@ const ProcessFormSection: React.FC<ProcessFormSectionProps> = ({ steps }) => {
 
                                 <div>
                                     <label className="block text-xs font-medium text-muted-foreground mb-1.5">Upload Plans</label>
-                                    <div className="border-2 border-dashed border-border rounded-xl p-4 text-center hover:border-primary/50 hover:bg-primary/5 transition-all cursor-pointer group bg-background/30">
+                                    <div
+                                        className="border-2 border-dashed border-border rounded-xl p-4 text-center hover:border-primary/50 hover:bg-primary/5 transition-all cursor-pointer group bg-background/30 relative"
+                                        onClick={() => document.getElementById('process-file-upload')?.click()}
+                                    >
+                                        <input
+                                            type="file"
+                                            id="process-file-upload"
+                                            className="hidden"
+                                            accept=".pdf"
+                                            onChange={handleFileChange}
+                                        />
                                         <Upload className="w-6 h-6 text-muted-foreground mx-auto mb-1 group-hover:text-primary transition-colors" />
                                         <p className="text-muted-foreground text-sm">
-                                            Drop files here or <span className="text-primary font-medium">browse</span>
+                                            {file ? (
+                                                <span className="text-primary font-medium">{file.name}</span>
+                                            ) : (
+                                                <>Drop files here or <span className="text-primary font-medium">browse</span> (PDF Only)</>
+                                            )}
                                         </p>
                                         <p className="text-xs text-muted-foreground/60 mt-0.5">
-                                            PDF, JPG, PNG up to 50MB
+                                            PDF up to 50MB
                                         </p>
                                     </div>
                                 </div>
 
                                 <Button variant="hero" size="lg" className="w-full text-lg h-11 shadow-lg hover:shadow-primary/25 transition-all">
                                     <Send className="w-4 h-4 mr-2" />
-                                    Get Free Estimate
+                                    Get Estimation Now
                                 </Button>
 
                                 <p className="text-center text-xs text-muted-foreground">

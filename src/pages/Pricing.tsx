@@ -9,66 +9,87 @@ import FAQ from "@/components/FAQ";
 
 const plans = [
     {
-        name: "Single Trade Pricing",
-        price: "$199",
-        period: "Starting From",
-        subtitle: "Specific Trade",
-        description: "Perfect for specific needs like electrical, plumbing, or masonry takeoffs.",
+        name: "Single Trade Package",
+        price: "$150 - $250",
+        period: "per Project",
+        subtitle: "Single Trade",
+        description: "Perfect for specific trade needs with quick turnaround.",
         features: [
-            "Turnaround Time 24 to 48 Hrs",
-            "Any Trade or Any Kind of Project",
-            "Free Quote Within 5 to 10 Minutes",
-            "Free Consultation",
-            "Immediate and Unlimited Revisions",
-            "24/7 Email Support",
-            "Live Chat and Call Support",
+            "Turnaround within 2 Working Days",
+            "Any Single Trade or Project",
+            "Multiple Revisions",
             "No Hidden Charges",
-            "Refund Policy (Risk Free)"
+            "24/7 Email Client Support"
         ],
         popular: false,
         theme: "light"
     },
     {
-        name: "Monthly Packages",
-        price: "$1499",
-        period: "Starting From",
-        subtitle: "Per Month",
-        description: "For busy contractors needing consistent, high-volume estimating work.",
+        name: "Standard Packages",
+        price: "$400 - $600",
+        period: "per Project",
+        subtitle: "Multiple Trades",
+        description: "Comprehensive solution for multiple trades and cost management.",
         features: [
-            "10 to 15 Projects",
-            "Bid Filing and Consultation",
-            "Material Takeoffs and Cost Management",
-            "Turnaround Time 24 to 48 Hrs",
-            "Any Trade or Any Kind of Project",
-            "Free Quote Within 5 to 10 Minutes",
-            "Free Consultation",
-            "Immediate and Unlimited Revisions",
-            "24/7 Email Support",
-            "Live Chat and Call Support",
-            "No Hidden Charges",
-            "Refund Policy (Risk Free)"
+            "Turnaround within 4 Working Days",
+            "Multiple Trades and Projects",
+            "Material Takeoffs",
+            "Cost Management",
+            "Multiple Revisions",
+            "24/7 Email Client Support",
+            "No Hidden Charges"
         ],
         popular: true,
         theme: "dark"
     },
     {
-        name: "Dedicated Estimator",
-        price: "Call For Price",
-        period: "Starting From",
-        subtitle: "Dedicated Resources",
-        description: "Hire a dedicated full-time estimator for your ongoing projects.",
+        name: "Premium Packages",
+        price: "$1000 - $1500",
+        period: "per Project",
+        subtitle: "Dedicated Service",
+        description: "Top-tier service with dedicated resources and feasibility studies.",
         features: [
             "Dedicated Resources",
             "Feasibility Studies",
-            "Consultation on smartly filing bids",
-            "Manage the bidding network profiles",
-            "Project Scheduling",
-            "Material Takeoffs",
-            "Cost Management"
+            "Prioritized Estimates",
+            "Project Timeline Planning",
+            "Cost Control"
         ],
         popular: false,
-        theme: "light",
-        action: "Read More" // Special button text
+        theme: "light"
+    },
+    {
+        name: "Residential Monthly Bundle",
+        price: "$2500 - $3500",
+        period: "per Month",
+        subtitle: "Residential Scale",
+        description: "Ideal for ongoing residential projects up to 2 storeys.",
+        features: [
+            "Up to 15 Projects",
+            "Project Size: 2 Storey Buildings",
+            "Turnaround: 3 Days per Project",
+            "Multiple Revisions Allowed",
+            "Constant Call & Chat Support",
+            "Project Management",
+            "Budget Oversight"
+        ],
+        popular: false,
+        theme: "light"
+    },
+    {
+        name: "Commercial Monthly Bundle",
+        price: "$3500 - $4500",
+        period: "per Month",
+        subtitle: "Commercial Scale",
+        description: "High-volume commercial estimating for large projects.",
+        features: [
+            "Up to 15 Projects",
+            "Project Size: 10k - 20k SF",
+            "Turnaround: 3 Days per Project",
+            "Multiple Revisions Allowed"
+        ],
+        popular: false,
+        theme: "light"
     }
 ];
 
@@ -95,26 +116,28 @@ const Pricing = () => {
                     <div className="max-w-4xl mx-auto text-center">
                         <span className="text-secondary font-semibold uppercase tracking-wider text-sm mb-4 block animate-fade-up">
                             Transparent Pricing
+
+
                         </span>
                         <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-7xl text-primary-foreground leading-tight mb-6 animate-fade-up delay-100">
-                            COMPETITIVE <span className="text-gradient">RATES</span>
+                            OUR <span className="text-gradient">PRICING</span> PLANS
                         </h1>
-                        <p className="text-lg md:text-xl text-secondary-foreground/80 max-w-2xl mx-auto animate-fade-up delay-200 mb-8">
-                            We offer flexible pricing options tailored to your project size and complexity. Get a fast, accurate quote today.
+                        <p className="text-lg md:text-xl text-secondary-foreground/80 max-w-4xl mx-auto animate-fade-up delay-200 mb-8">
+                            We are now a reputed construction estimating company in Phoenix. Like our estimations, we aim to serve you value at affordable prices. We have multiple plans with flexible pricing to suit every budget and goal. You can choose a plan from among these and benefit from our exceptional services within your affordability.
                         </p>
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up delay-400">
                             <Button variant="hero" size="lg" asChild>
                                 <Link to="/contact">
-                                    Get Free Quote
+                                    Get Estimation Now
                                     <ArrowRight className="w-5 h-5 ml-2" />
                                 </Link>
                             </Button>
                             <Button variant="heroOutline" size="lg" asChild>
-                                <a href="tel:+17187196171">
+                                <a href="tel:+12128122993">
                                     <Phone className="w-5 h-5 mr-2" />
-                                    (718) 719-6171
+                                    (212) 812-2993
                                 </a>
                             </Button>
                         </div>
@@ -125,7 +148,7 @@ const Pricing = () => {
             {/* Pricing Cards */}
             <section className="py-20 bg-background">
                 <div className="container mx-auto px-4 lg:px-8">
-                    <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto items-start">
+                    <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto items-start">
                         {plans.map((plan, index) => {
                             const isDark = plan.theme === "dark";
 
@@ -134,6 +157,7 @@ const Pricing = () => {
                                     key={index}
                                     className={`
                                         relative flex flex-col items-center rounded-2xl overflow-hidden transition-all duration-300
+                                        w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1rem)]
                                         ${isDark
                                             ? "bg-secondary text-white shadow-2xl scale-105 z-10 lg:-mt-3 lg:mb-3 border-2 border-primary/20"
                                             : "bg-white text-foreground shadow-lg border border-border hover:shadow-xl"
@@ -181,35 +205,19 @@ const Pricing = () => {
                                         </div>
 
                                         <div className="text-center">
-                                            {plan.action === "Read More" ? (
-                                                <Button
-                                                    size="sm"
-                                                    className={`
-                                                     w-32 rounded-full font-bold h-10
-                                                     ${isDark
-                                                            ? "bg-white text-secondary hover:bg-gray-100"
-                                                            : "bg-[#1e2b4d] text-white hover:bg-[#1e2b4d]/90"
-                                                        }
-                                                 `}
-                                                    asChild
-                                                >
-                                                    <Link to="/contact">Read More</Link>
-                                                </Button>
-                                            ) : (
-                                                <Button
-                                                    size="sm"
-                                                    className={`
-                                                        w-full rounded-full h-10 text-sm font-bold
-                                                        ${isDark
-                                                            ? "bg-white text-secondary hover:bg-gray-100"
-                                                            : "bg-[#1e2b4d] text-white hover:bg-[#1e2b4d]/90"
-                                                        }
-                                                    `}
-                                                    asChild
-                                                >
-                                                    <Link to="/contact">Get Started</Link>
-                                                </Button>
-                                            )}
+                                            <Button
+                                                size="sm"
+                                                className={`
+                                                    w-full rounded-full h-10 text-sm font-bold
+                                                    ${isDark
+                                                        ? "bg-white text-secondary hover:bg-gray-100"
+                                                        : "bg-[#1e2b4d] text-white hover:bg-[#1e2b4d]/90"
+                                                    }
+                                                `}
+                                                asChild
+                                            >
+                                                <Link to="/contact">Get Started</Link>
+                                            </Button>
                                         </div>
                                     </div>
                                 </div>
@@ -223,7 +231,24 @@ const Pricing = () => {
             <PricingPaymentSection />
 
             {/* FAQ Section */}
-            <FAQ />
+            <FAQ items={[
+                {
+                    question: "Are there any hidden costs apart from the estimate given by your firm?",
+                    answer: "No, we do not charge extra after giving you an  estimate. Our policy is based on transparency and effective communication with clients.",
+                },
+                {
+                    question: "Can I ask for a personalized response according to my specific goals?",
+                    answer: "Yes, you can ask for a quote based on  your personal goals. Our team of professionals looks toward identifying unique elements of your project to help you build a plan.",
+                },
+                {
+                    question: "Through what ways can I pay securely for your services?",
+                    answer: "We have multiple payment options for your convenience. You can pay through a credit card, payPal or Debit Card to ensure secure payments.",
+                },
+                {
+                    question: "In what format do you give the final estimate to the clients?",
+                    answer: "We provide the estimates according to client demand in many formats. These include formats such as PDF, DWF and other specialized software. Among these, we ensure the data lays out in a way that is easy to understand.",
+                },
+            ]} />
 
             <Footer />
         </div>

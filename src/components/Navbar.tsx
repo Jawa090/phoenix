@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { services } from "@/data/services";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,15 +41,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-accent-gradient rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span className="font-display text-xl text-primary-foreground">P</span>
-            </div>
+            <img src={logo} alt="Phoenix Logo" className="w-[60px] h-[60px] object-contain group-hover:scale-110 transition-transform" />
             <div className="hidden sm:block">
-              <span className="font-display text-2xl text-primary-foreground tracking-wide">
+              <span className="font-display text-2xl text-primary font-bold tracking-normal leading-none block">
                 PHOENIX
               </span>
-              <span className="block text-xs text-muted-foreground -mt-1">
-                Construction Estimating
+              <span className="block text-[0.6rem] text-white tracking-[0.54em] uppercase font-medium leading-none ml-[1px] mt-1">
+                ESTIMATING
               </span>
             </div>
           </Link>
@@ -69,7 +68,8 @@ const Navbar = () => {
             </Link>
 
             {/* Services Dropdown */}
-            <div
+            {/* Services Dropdown */}
+            {/* <div
               className="relative h-full flex items-center"
               onMouseEnter={() => setActiveDropdown("services")}
               onMouseLeave={() => setActiveDropdown(null)}
@@ -88,7 +88,7 @@ const Navbar = () => {
               </Link>
 
               {/* Services Dropdown Menu - Fixed with transparent bridge */}
-              {activeDropdown === "services" && (
+            {/* {activeDropdown === "services" && (
                 <div className="absolute top-full left-0 pt-2 w-72 animate-fade-up">
                   <div className="bg-card border border-border rounded-xl shadow-elevated py-2 max-h-[80vh] overflow-y-auto">
                     {services.map((service) => (
@@ -102,8 +102,8 @@ const Navbar = () => {
                     ))}
                   </div>
                 </div>
-              )}
-            </div>
+              )} */}
+            {/* </div> */}
 
             {/* Portfolio */}
             <Link
@@ -119,7 +119,8 @@ const Navbar = () => {
             </Link>
 
             {/* Samples */}
-            <Link
+            {/* Samples */}
+            {/* <Link
               to="/samples"
               className={`relative px-4 py-2 text-secondary-foreground/80 hover:text-primary transition-colors duration-200 font-medium group ${isActive("/samples") ? "text-primary" : ""
                 }`}
@@ -129,7 +130,7 @@ const Navbar = () => {
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
               )}
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-            </Link>
+            </Link> */}
 
             {/* Pricing */}
             <Link
@@ -173,12 +174,12 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+17187196171" className="flex items-center gap-2 text-primary font-semibold hover:scale-105 transition-transform">
+            <a href="tel:+12128122993" className="flex items-center gap-2 text-primary font-semibold hover:scale-105 transition-transform">
               <Phone className="w-4 h-4" />
-              <span>(718) 719-6171</span>
+              <span>(212) 812-2993</span>
             </a>
             <Button variant="hero" size="default" onClick={scrollToContact}>
-              Get Free Quote
+              Get Estimation Now
             </Button>
           </div>
 
@@ -202,13 +203,13 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              <Link
+              {/* <Link
                 to="/services"
                 className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
-              </Link>
+              </Link> */}
               <Link
                 to="/portfolio"
                 className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
@@ -216,13 +217,13 @@ const Navbar = () => {
               >
                 Portfolio
               </Link>
-              <Link
+              {/* <Link
                 to="/samples"
                 className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Samples
-              </Link>
+              </Link> */}
               <Link
                 to="/pricing"
                 className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
@@ -247,7 +248,7 @@ const Navbar = () => {
               </Link>
               <div className="pt-4 border-t border-primary/10">
                 <Button variant="hero" className="w-full" onClick={() => { scrollToContact(); setIsMenuOpen(false); }}>
-                  Get Free Quote
+                  Get Estimation Now
                 </Button>
               </div>
             </div>

@@ -37,7 +37,7 @@ const FloatingCTA = () => {
 
                 {/* Call Button */}
                 <a
-                    href="tel:+17187196171"
+                    href="tel:+12128122993"
                     className="group flex items-center justify-center w-12 h-12 bg-white text-primary rounded-full shadow-lg hover:scale-110 transition-all duration-300 border border-primary/10 hover:shadow-primary/25 pointer-events-auto"
                     aria-label="Call Us"
                     draggable="false"
@@ -55,7 +55,7 @@ const FloatingCTA = () => {
                         className="h-14 px-6 rounded-full shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all duration-300 bg-primary text-secondary font-bold text-base flex items-center gap-2"
                     >
                         <FileText className="w-5 h-5" />
-                        <span>Get Free Quote</span>
+                        <span>Get Estimation Now</span>
                     </Button>
                 </Link>
             </motion.div>

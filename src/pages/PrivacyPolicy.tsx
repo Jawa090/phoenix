@@ -130,7 +130,7 @@ const PrivacyPolicy = () => {
                                 </p>
                                 <div className="bg-muted p-6 rounded-xl border border-border not-prose">
                                     <p className="font-display text-xl mb-2 text-foreground">Phoenix Estimating</p>
-                                    <p className="text-muted-foreground mb-1">Phoenix, Arizona, USA</p>
+                                    <p className="text-muted-foreground mb-1">1655 E University Dr, Tempe, Arizona, 85288, USA</p>
                                     <p className="text-muted-foreground">
                                         Email: <a href="mailto:info@phoenixestimating.com" className="text-primary hover:underline">info@phoenixestimating.com</a>
                                     </p>

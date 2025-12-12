@@ -102,14 +102,14 @@ const Samples = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up delay-400">
                             <Button variant="hero" size="lg" asChild>
                                 <Link to="/contact">
-                                    Get Free Quote
+                                    Get Estimation Now
                                     <ArrowRight className="w-5 h-5 ml-2" />
                                 </Link>
                             </Button>
                             <Button variant="heroOutline" size="lg" asChild>
-                                <a href="tel:+17187196171">
+                                <a href="tel:+12128122993">
                                     <Phone className="w-5 h-5 mr-2" />
-                                    (718) 719-6171
+                                    (212) 812-2993
                                 </a>
                             </Button>
                         </div>
@@ -128,8 +128,8 @@ const Samples = () => {
                                 key={category}
                                 onClick={() => setActiveFilter(category)}
                                 className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeFilter === category
-                                        ? "bg-primary text-white shadow-lg scale-105"
-                                        : "bg-white text-muted-foreground border border-border hover:border-primary/50 hover:text-primary"
+                                    ? "bg-primary text-white shadow-lg scale-105"
+                                    : "bg-white text-muted-foreground border border-border hover:border-primary/50 hover:text-primary"
                                     }`}
                             >
                                 {category}

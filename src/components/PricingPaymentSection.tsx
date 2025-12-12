@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Upload, CreditCard, Wallet, Building2, CheckCircle2, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import confetti from "canvas-confetti";
 
 const PricingPaymentSection = () => {
     const { toast } = useToast();
@@ -14,18 +15,69 @@ const PricingPaymentSection = () => {
         zipCode: "",
         message: "",
     });
+    const [file, setFile] = useState<File | null>(null);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        toast({
-            title: "Quote Request Submitted!",
-            description: "We'll get back to you within 24 hours with your estimate.",
-        });
-        setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            const selectedFile = e.target.files[0];
+            if (selectedFile.type === "application/pdf") {
+                setFile(selectedFile);
+                toast({
+                    title: "File uploaded successfully",
+                    description: selectedFile.name,
+                });
+            } else {
+                toast({
+                    title: "Invalid file type",
+                    description: "Please upload a PDF file",
+                    variant: "destructive",
+                });
+            }
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        // Trigger confetti animation
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        const randomInRange = (min: number, max: number) => {
+            return Math.random() * (max - min) + min;
+        }
+
+        const interval: any = setInterval(function () {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+            confetti({
+                ...defaults,
+                particleCount,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+            });
+            confetti({
+                ...defaults,
+                particleCount,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+            });
+        }, 250);
+
+        toast({
+            title: "Estimation sent successfully",
+            description: "We'll get back to you within 24 hours with your estimate.",
+        });
+        setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
+        setFile(null);
     };
 
     const paymentMethods = [
@@ -75,7 +127,7 @@ const PricingPaymentSection = () => {
                     <div className="bg-card rounded-2xl p-6 shadow-lg border border-border">
                         <div className="text-center mb-6">
                             <h2 className="text-2xl lg:text-3xl font-bold text-black font-display mb-2">
-                                GET YOUR <span className="text-primary">FREE QUOTE</span>
+                                GET YOUR <span className="text-primary">ESTIMATION NOW</span>
                             </h2>
                             <p className="text-muted-foreground text-sm">
                                 Submit your plans and receive an accurate estimate within 24 hours
@@ -164,10 +216,24 @@ const PricingPaymentSection = () => {
                                 <label className="block text-xs font-medium text-muted-foreground mb-1.5">
                                     Upload Plans (Optional)
                                 </label>
-                                <div className="border-2 border-dashed border-border rounded-lg p-4 text-center hover:border-primary/50 transition-colors cursor-pointer group">
+                                <div
+                                    className="border-2 border-dashed border-border rounded-lg p-4 text-center hover:border-primary/50 transition-colors cursor-pointer group relative"
+                                    onClick={() => document.getElementById('pricing-file-upload')?.click()}
+                                >
+                                    <input
+                                        type="file"
+                                        id="pricing-file-upload"
+                                        className="hidden"
+                                        accept=".pdf"
+                                        onChange={handleFileChange}
+                                    />
                                     <Upload className="w-6 h-6 text-muted-foreground mx-auto mb-1 group-hover:text-primary transition-colors" />
                                     <p className="text-muted-foreground text-xs">
-                                        Drop files or <span className="text-primary font-medium">browse</span>
+                                        {file ? (
+                                            <span className="text-primary font-medium">{file.name}</span>
+                                        ) : (
+                                            <>Drop files or <span className="text-primary font-medium">browse</span> (PDF only)</>
+                                        )}
                                     </p>
                                 </div>
                             </div>
@@ -175,7 +241,7 @@ const PricingPaymentSection = () => {
                             {/* Submit Button */}
                             <Button variant="hero" size="lg" className="w-full group">
                                 <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                                Get Free Quote
+                                Get Estimation Now
                             </Button>
 
                             {/* Privacy Note */}

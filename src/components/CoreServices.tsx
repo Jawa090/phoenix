@@ -97,7 +97,7 @@ const CoreServices = () => {
             Need a specific service not listed here? We cover all construction trades.
           </p>
           <Button variant="outline" size="lg" onClick={scrollToContact}>
-            Contact Us for Custom Estimates
+            Get Estimation Now
           </Button>
         </div>
       </div>

@@ -1,68 +1,107 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Calendar, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import commercialBuilding from "@/assets/commercial-building.jpg";
-import residentialHome from "@/assets/residential-home.jpg";
 import industrialProject from "@/assets/industrial-project.jpg";
 import heroConstruction from "@/assets/hero-construction.jpg";
+import roofing from "@/assets/portfolio/roofing.png";
+import masonry from "@/assets/portfolio/masonry.png";
+import drywall from "@/assets/portfolio/drywall.png";
+import mechanical from "@/assets/portfolio/mechanical.png";
+import electrical from "@/assets/portfolio/electrical.png";
+import plumbing from "@/assets/portfolio/plumbing.png";
 import ContactForm from "@/components/ContactForm";
 
 const projects = [
     {
-        title: "Modern Office Complex",
-        category: "Commercial",
-        location: "Phoenix, AZ",
-        date: "2024",
-        image: commercialBuilding,
-        description: "Full electrical and plumbing takeoff for a 5-story office building.",
-        pricing: "Starting at $450"
+        title: "GENERAL CONTACTOR (GC)",
+        subtitle: "",
+        items: [
+            "75 UNIT AFFORDABLE ED-1 HOUSING PROJECT – $13.29M",
+            "McDonald’s - 2438 W. CERMAK ROAD – $1.256M",
+            "THE GREEN BERRY – $1.025M",
+            "4415 IOWA AVA NW WASHINGTON DC – $2.565M",
+        ],
+        image: heroConstruction
     },
     {
-        title: "Luxury Residential Estate",
-        category: "Residential",
-        location: "Scottsdale, AZ",
-        date: "2023",
-        image: residentialHome,
-        description: "Comprehensive material estimation for a 6,000 sq ft custom home.",
-        pricing: "Starting at $350"
+        title: "CONCRETE ESTIMATING",
+        subtitle: "",
+        items: [
+            "7 ELEVEN– $0.723M",
+            "CHICK FIL-A– $0.582M",
+            "TO-ROGERS FLEX WAREHOUSE– $0.475M",
+            "Lipp America Tank Sytem – $0.3156M",
+        ],
+        image: industrialProject
     },
     {
-        title: "Industrial Warehouse",
-        category: "Industrial",
-        location: "Chandler, AZ",
-        date: "2024",
-        image: industrialProject,
-        description: "Structural steel and concrete takeoff for a 50k sq ft logistics center.",
-        pricing: "Starting at $800"
+        title: "MASONARY ESTIMATING",
+        subtitle: "",
+        items: [
+            "High Point Treatment Center– $0.323M",
+            "Cape St Claire Firestation – $0.392M",
+            "Civitas Georgetown – $0.525M",
+            "O'REILLY AUTO PARTS GROUND UP– $0.215M"
+        ],
+        image: masonry
     },
     {
-        title: "Urban Mixed-Use Development",
-        category: "Commercial",
-        location: "Tempe, AZ",
-        date: "2023",
-        image: heroConstruction,
-        description: "Complete cost estimation for a mixed retail and residential complex.",
-        pricing: "Starting at $1,200"
+        title: "DRYWALL ESTIMATING",
+        subtitle: "",
+        items: [
+            "KIDS EMPIRE– $0.523M",
+            "GERBER COLLISION & GLASS– $0.312M",
+            "Pop Mart Danbury Fair– $0.415M",
+            "Planet fitness– $0.315M"
+        ],
+        image: drywall
     },
     {
-        title: "Medical Center Renovation",
-        category: "Healthcare",
-        location: "Mesa, AZ",
-        date: "2024",
-        image: commercialBuilding,
-        description: "HVAC and mechanical estimation for a hospital wing renovation.",
-        pricing: "Starting at $600"
+        title: "ROOFING ESTIMATING",
+        subtitle: "",
+        items: [
+            "5925 Woodland Avenue – $0.232M",
+            "Newnan City Church – $0.322M",
+            "RENOVATION AND EXPANSION OF SPS– $0.475M",
+            "AVANZA AT HYDE PARK– $0.3215M"
+        ],
+        image: roofing
     },
     {
-        title: "Custom Home Development",
-        category: "Residential",
-        location: "Gilbert, AZ",
-        date: "2023",
-        image: residentialHome,
-        description: "Lumber and framing takeoff for a new gated community project.",
-        pricing: "Starting at $300"
+        title: "MECHANICAL ESTIMATING",
+        subtitle: "",
+        items: [
+            "MECHANICAL (HVAC)",
+            "Planet Fitness– $0.15M",
+            "ID PICKLR - FREMONT– $0.375M",
+            "Chevron– $0.4215M"
+        ],
+        image: mechanical
+    },
+    {
+        title: "ELECTRICAL ESTIMATING",
+        subtitle: "",
+        items: [
+            "Transition Learning Center 18+– $0.242M",
+            "Whiteville Community Center– $0.16M",
+            "Solid waste convenience center– $0.245M",
+            "AutoZone Store No. 9361– $0.1215M"
+        ],
+        image: electrical
+    },
+    {
+        title: "PLUMBING ESTIMATING",
+        subtitle: "",
+        items: [
+            "Snarf's Sandwiches – $0.142M",
+            "Civitas Georgetown– $0.265M",
+            "Voter Registration – $0.345M",
+            "LensCrafter – $0.112M"
+        ],
+        image: plumbing
     }
 ];
 
@@ -101,14 +140,14 @@ const Portfolio = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up delay-400">
                             <Button variant="hero" size="lg" asChild>
                                 <Link to="/contact">
-                                    Get Free Quote
+                                    Get Estimation Now
                                     <ArrowRight className="w-5 h-5 ml-2" />
                                 </Link>
                             </Button>
                             <Button variant="heroOutline" size="lg" asChild>
-                                <a href="tel:+17187196171">
+                                <a href="tel:+12128122993">
                                     <Phone className="w-5 h-5 mr-2" />
-                                    (718) 719-6171
+                                    (212) 812-2993
                                 </a>
                             </Button>
                         </div>
@@ -129,38 +168,25 @@ const Portfolio = () => {
                                         alt={project.title}
                                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                     />
-                                    <div className="absolute top-4 left-4 z-20">
-                                        <span className="bg-secondary text-secondary-foreground text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                            {project.category}
-                                        </span>
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
+                                        <h3 className="font-display text-2xl font-bold text-white mb-1">
+                                            {project.title}
+                                        </h3>
+                                        {project.subtitle && (
+                                            <p className="text-white/80 text-sm">{project.subtitle}</p>
+                                        )}
                                     </div>
                                 </div>
 
-                                <div className="p-8 flex-1 flex flex-col">
-                                    <h3 className="font-display text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                                        {project.title}
-                                    </h3>
-                                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                                        <div className="flex items-center gap-1">
-                                            <MapPin className="w-4 h-4" />
-                                            {project.location}
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <Calendar className="w-4 h-4" />
-                                            {project.date}
-                                        </div>
-                                    </div>
-                                    <p className="text-muted-foreground mb-6 flex-1">
-                                        {project.description}
-                                    </p>
-                                    <div className="mt-auto pt-4 border-t border-border">
-                                        <ul className="space-y-2">
-                                            <li className="flex items-center text-sm text-primary font-semibold">
-                                                <div className="w-2 h-2 rounded-full bg-primary mr-2" />
-                                                {project.pricing}
+                                <div className="p-6 flex-1 flex flex-col">
+                                    <ul className="space-y-3">
+                                        {project.items.map((item, i) => (
+                                            <li key={i} className="flex items-start text-sm text-secondary-foreground/80">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-3 flex-shrink-0" />
+                                                <span className="leading-tight text-black">{item}</span>
                                             </li>
-                                        </ul>
-                                    </div>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         ))}

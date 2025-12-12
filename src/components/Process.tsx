@@ -98,7 +98,7 @@ const Process = () => {
 
             {/* Button content */}
             <span className="relative z-10 flex items-center gap-3">
-              <span className="font-display text-xl">Get a Quote</span>
+              <span className="font-display text-xl">Get Estimation Now</span>
               <svg
                 className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300"
                 fill="none"

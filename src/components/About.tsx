@@ -78,7 +78,7 @@ const About = () => {
             </div>
 
             <Button variant="default" size="lg" onClick={scrollToContact}>
-              Get Free Quote
+              Get Estimation Now
             </Button>
           </div>
         </div>

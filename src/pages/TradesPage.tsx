@@ -128,7 +128,7 @@ const TradesPage = () => {
                             We provide comprehensive multi-trade estimating packages tailored to your project needs.
                         </p>
                         <Button variant="hero" size="lg" onClick={() => navigate('/contact')}>
-                            Get Free Quote
+                            Get Estimation Now
                         </Button>
                     </div>
                 </div>

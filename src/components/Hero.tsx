@@ -50,11 +50,11 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up delay-400">
             <Button variant="hero" size="lg" onClick={scrollToContact}>
-              Schedule a Meeting
+              Get Estimation Now
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button variant="heroOutline" size="lg" asChild>
-              <a href="tel:+17187196171">Call Now</a>
+              <a href="tel:+12128122993">Call Now</a>
             </Button>
           </div>
 
