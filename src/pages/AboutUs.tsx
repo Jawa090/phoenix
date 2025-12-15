@@ -199,21 +199,21 @@ const AboutUs = () => {
                             </h2>
 
                             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                                <p className="font-semibold text-lg text-foreground">Phoenix Estimating began with a simple idea from Usman Chaudary: make bidding easier for contractors.</p>
+
                                 <p>
-                                    "When I founded Phoenix Estimating, my goal was simple: to provide contractors with the most reliable and accurate estimates in the industry. I understood the frustration of losing bids due to inaccurate numbers or overestimating costs."
+                                    After 20 years in construction management, estimating, and field operations, Usman saw contractors struggling to prepare accurate, competitive bids while juggling heavy workloads. He founded Phoenix Estimating to bridge that gap—helping teams win more projects without sacrificing time.
                                 </p>
+
                                 <p>
-                                    "Our team is dedicated to your success. We don't just crunch numbers; we analyze every detail of your project to ensure you have a competitive edge. Accuracy isn't just a metric for us—it's the foundation of everything we do."
-                                </p>
-                                <p>
-                                    "We believe in building long-term partnerships with our clients. Your win is our win, and we are committed to helping you grow your business through precise estimation and strategic planning."
+                                    Usman holds a BA in Architecture, is LEED‑certified, and is active in the American Society of Professional Estimators. His work includes projects for Bacardi, the University of Miami, private developers, and the U.S. Embassy in Jerusalem. He leads a team of engineers and architects with deep field experience.
                                 </p>
                             </div>
 
                             <div className="mt-10 pt-8 border-t border-border">
                                 <div className="flex items-center gap-4">
                                     <div>
-                                        <h4 className="font-display text-xl text-foreground">Chaudhary Usman</h4>
+                                        <h4 className="font-display text-xl text-foreground">Usman Chaudary</h4>
                                         <p className="text-primary font-medium">Founder & CEO</p>
                                     </div>
                                     <div className="ml-auto">
