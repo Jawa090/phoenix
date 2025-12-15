@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload, Send } from "lucide-react";
+import { Upload, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import confetti from "canvas-confetti";
+import { submitToGoogleSheet } from "@/lib/google-sheets";
+import { GOOGLE_SCRIPT_URL } from "@/lib/constants";
 
 interface ProcessStep {
     title: string;
@@ -25,6 +27,7 @@ const ProcessFormSection: React.FC<ProcessFormSectionProps> = ({ steps }) => {
         message: "",
     });
     const [file, setFile] = useState<File | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -49,8 +52,22 @@ const ProcessFormSection: React.FC<ProcessFormSectionProps> = ({ steps }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsLoading(true);
+
+        // Submit to Google Sheets
+        const success = await submitToGoogleSheet(formData, file, GOOGLE_SCRIPT_URL);
+
+        if (!success) {
+            toast({
+                title: "Submission failed",
+                description: "Please check your internet connection and try again.",
+                variant: "destructive",
+            });
+            setIsLoading(false);
+            return;
+        }
 
         // Trigger confetti animation
         const duration = 5 * 1000;
@@ -87,12 +104,13 @@ const ProcessFormSection: React.FC<ProcessFormSectionProps> = ({ steps }) => {
         });
         setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
         setFile(null);
+        setIsLoading(false);
     };
 
     return (
-        <section className="py-24 bg-secondary">
+        <section className="py-24 pb-28 md:pb-24 bg-secondary">
             <div className="container mx-auto px-4 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
                     {/* Left Content - Process Steps */}
                     <div>
                         <span className="text-primary font-semibold uppercase tracking-wider text-sm">
@@ -229,9 +247,18 @@ const ProcessFormSection: React.FC<ProcessFormSectionProps> = ({ steps }) => {
                                     </div>
                                 </div>
 
-                                <Button variant="hero" size="lg" className="w-full text-lg h-11 shadow-lg hover:shadow-primary/25 transition-all">
-                                    <Send className="w-4 h-4 mr-2" />
-                                    Get Estimation Now
+                                <Button variant="hero" size="lg" className="w-full text-lg h-11 shadow-lg hover:shadow-primary/25 transition-all" disabled={isLoading}>
+                                    {isLoading ? (
+                                        <>
+                                            <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                                            Submitting...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Send className="w-5 h-5 mr-2" />
+                                            Get Estimation Now
+                                        </>
+                                    )}
                                 </Button>
 
                                 <p className="text-center text-xs text-muted-foreground">

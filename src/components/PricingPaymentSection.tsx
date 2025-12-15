@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload, CreditCard, Wallet, Building2, CheckCircle2, Send } from "lucide-react";
+import { Upload, CreditCard, Wallet, Building2, CheckCircle2, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import confetti from "canvas-confetti";
+import { submitToGoogleSheet } from "@/lib/google-sheets";
+import { GOOGLE_SCRIPT_URL } from "@/lib/constants";
 
 const PricingPaymentSection = () => {
     const { toast } = useToast();
@@ -16,6 +18,7 @@ const PricingPaymentSection = () => {
         message: "",
     });
     const [file, setFile] = useState<File | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -40,8 +43,22 @@ const PricingPaymentSection = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsLoading(true);
+
+        // Submit to Google Sheets
+        const success = await submitToGoogleSheet(formData, file, GOOGLE_SCRIPT_URL);
+
+        if (!success) {
+            toast({
+                title: "Submission failed",
+                description: "Please check your internet connection and try again.",
+                variant: "destructive",
+            });
+            setIsLoading(false);
+            return;
+        }
 
         // Trigger confetti animation
         const duration = 5 * 1000;
@@ -78,6 +95,7 @@ const PricingPaymentSection = () => {
         });
         setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
         setFile(null);
+        setIsLoading(false);
     };
 
     const paymentMethods = [
@@ -92,13 +110,13 @@ const PricingPaymentSection = () => {
     ];
 
     return (
-        <section className="py-20 bg-hero relative overflow-hidden">
+        <section className="py-20 pb-24 md:pb-20 bg-hero relative overflow-hidden">
             {/* Background decorative elements */}
             <div className="absolute inset-0 bg-primary/90 mix-blend-multiply opacity-50" />
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2531&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-16 items-start">
 
                     {/* Left Side: Payment Methods Card */}
                     <div className="flex flex-col items-center h-full pt-8">
@@ -239,9 +257,18 @@ const PricingPaymentSection = () => {
                             </div>
 
                             {/* Submit Button */}
-                            <Button variant="hero" size="lg" className="w-full group">
-                                <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                                Get Estimation Now
+                            <Button variant="hero" size="lg" className="w-full group" disabled={isLoading}>
+                                {isLoading ? (
+                                    <>
+                                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                        Submitting...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                                        Get Estimation Now
+                                    </>
+                                )}
                             </Button>
 
                             {/* Privacy Note */}

@@ -4,11 +4,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Send, Clock, CheckCircle2, Upload } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Clock, CheckCircle2, Upload, Loader2 } from "lucide-react";
 import servicesHero from "@/assets/services-hero.jpg";
-import phoenixSkyline from "@/assets/phoenix_skyline_contact.png";
+import commercialBuilding from "@/assets/commercial-building.jpg";
 import { useToast } from "@/hooks/use-toast";
 import confetti from "canvas-confetti";
+import { submitToGoogleSheet } from "@/lib/google-sheets";
+import { GOOGLE_SCRIPT_URL } from "@/lib/constants";
 
 const ContactPage = () => {
     const { toast } = useToast();
@@ -20,6 +22,7 @@ const ContactPage = () => {
         message: "",
     });
     const [file, setFile] = useState<File | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -44,8 +47,22 @@ const ContactPage = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsLoading(true);
+
+        // Submit to Google Sheets
+        const success = await submitToGoogleSheet(formData, file, GOOGLE_SCRIPT_URL);
+
+        if (!success) {
+            toast({
+                title: "Submission failed",
+                description: "Please check your internet connection and try again.",
+                variant: "destructive",
+            });
+            setIsLoading(false);
+            return;
+        }
 
         // Trigger confetti animation
         const duration = 5 * 1000;
@@ -82,6 +99,7 @@ const ContactPage = () => {
         });
         setFormData({ name: "", email: "", phone: "", zipCode: "", message: "" });
         setFile(null);
+        setIsLoading(false);
     };
     return (
         <div className="min-h-screen bg-background">
@@ -113,7 +131,7 @@ const ContactPage = () => {
             </section>
 
             {/* Main Content Section */}
-            <section id="contact" className="py-16 bg-background relative">
+            <section id="contact" className="py-16 pb-24 md:pb-16 bg-background relative">
                 <div className="container mx-auto px-4 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
 
@@ -274,9 +292,18 @@ const ContactPage = () => {
                                         </div>
                                     </div>
 
-                                    <Button className="w-full h-12 text-base font-bold bg-[#1e2b4d] hover:bg-[#1e2b4d]/90 shadow-lg mt-2 group">
-                                        Get Estimation Now
-                                        <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                    <Button className="w-full h-12 text-base font-bold bg-[#1e2b4d] hover:bg-[#1e2b4d]/90 shadow-lg mt-2 group" disabled={isLoading}>
+                                        {isLoading ? (
+                                            <>
+                                                <Loader2 className="w-4 h-4 ml-2 animate-spin" />
+                                                Submitting...
+                                            </>
+                                        ) : (
+                                            <>
+                                                Get Estimation Now
+                                                <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                            </>
+                                        )}
                                     </Button>
                                 </form>
                             </div>
@@ -316,8 +343,8 @@ const ContactPage = () => {
                             <div className="relative h-[400px] lg:h-auto lg:min-h-[500px] lg:translate-y-8 lg:translate-x-8 lg:-mb-8 lg:-mr-8">
                                 <div className="absolute inset-0 bg-[#1e2b4d] transform translate-x-4 translate-y-4 rounded-3xl lg:hidden"></div>
                                 <img
-                                    src={phoenixSkyline}
-                                    alt="Phoenix City Skyline"
+                                    src={commercialBuilding}
+                                    alt="Commercial Construction Building"
                                     className="relative w-full h-full object-cover rounded-3xl shadow-2xl lg:shadow-none border-4 border-white lg:border-none"
                                 />
                                 {/* Overlay Shadow for Desktop */}
