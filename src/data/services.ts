@@ -26,95 +26,46 @@ export interface ServiceData {
 
 export const services: ServiceData[] = [
     {
-        slug: "construction-takeoff-services",
-        icon: Layers,
-        title: "Construction Takeoff Services",
-        shortDesc: "Detailed material quantity takeoffs for all construction trades",
-        description: "Maximize your bid winning potential with our precise construction takeoff services. We provide comprehensive material lists and quantity surveys that help contractors and developers budget accurately.",
-        heroImage: estimatingPlans,
-        features: ["Material Quantity Surveys", "Cost Estimation", "Bid Preparation", "Value Engineering"],
-        benefits: [
-            "Eliminate material shortages and waste",
-            "Speed up your bidding process significantly",
-            "Detailed breakdown of every material needed",
-            "Cloud-based access to all takeoff data",
-            "Compatible with major estimation software",
-            "Verified by senior cost estimators"
-        ],
-        process: [
-            { title: "Upload Plans", description: "Submit your drawings and specifications via our secure portal." },
-            { title: "Scope Review", description: "Our team reviews the scope to ensure all trades are covered." },
-            { title: "Quantity Survey", description: "We perform a digitial takeoff of all materials required." },
-            { title: "Delivery", description: "Receive a detailed Excel/PDF report ready for pricing." }
-        ],
-        faqs: [
-            { question: "What file formats do you accept for plans?", answer: "We accept PDF, DWG, TIFF, and all major CAD file formats for performing takeoffs." },
-            { question: "Can you use my specific material pricing?", answer: "Yes, we can plug in your local vendor pricing if provided, or use regional averages." },
-            { question: "What trades do you cover in takeoffs?", answer: "We cover all CSI divisions including concrete, masonry, metals, wood, thermal, finishes, and MEP." },
-            { question: "How do you handle plan addendums?", answer: "We quickly revise takeoffs to incorporate any addendums or changes issued during the bid process." },
-            { question: "Is the takeoff list compatible with Excel?", answer: "Yes, we provide fully editable Excel spreadsheets with formulas included." },
-            { question: "What is your typical turnaround time?", answer: "Small projects take 24-48 hours, while complex commercial takeoffs may take 3-5 days." }
-        ],
-        whyImportant: {
-            title: "Why Accurate Takeoffs Matter",
-            description: "A precise takeoff is the foundation of a profitable project. Overestimating leads to lost bids, while underestimating eats into your profits. Our construction takeoff services ensure you have the exact quantities needed, minimizing risk and maximizing efficiency from day one.",
-            image: servicesHero
-        },
-        rangeOfServices: {
-            title: "Our Takeoff Capabilities",
-            description: "We cover every aspect of the construction project lifecycle.",
-            items: [
-                "Sitework & Excavation", "Concrete & Rebar", "Masonry & Stone",
-                "Lumber & Framing", "Drywall & Acoustics", "Flooring & Tile",
-                "Painting & Coatings", "Roofing & Siding", "Doors & Windows",
-                "Millwork & Cabinetry", "Insulation & Fireproofing", "Landscaping"
-            ]
-        },
-        stats: [
-            { value: "99%", label: "Accuracy", icon: Target },
-            { value: "24h", label: "Fastest Turnaround", icon: Clock },
-            { value: "10k+", label: "Takeoffs Delivered", icon: Users },
-            { value: "100%", label: "Client Satisfaction", icon: Award }
-        ]
-    },
-    {
         slug: "commercial-estimating-services",
         icon: Building2,
-        title: "Commercial Estimating Services",
-        shortDesc: "Complete cost estimating for commercial building projects",
-        description: "From retail build-outs to high-rise offices, our commercial estimating team delivers detailed cost assessments that account for labor, materials, equipment, and overhead.",
+        title: "Commercial Estimating Services Phoenix",
+        shortDesc: "Accurate commercial construction estimates with cost intelligence and complete understanding of building systems",
+        description: "Commercial construction projects demand more than basic estimating services. We need strategies of cost intelligence and a complete understanding of building systems. The commercial service is built around these factors to deliver clear and transparent results. We also support contractors and financial institutions with structure models and breakdowns. We make every estimate on the latest platforms and experienced professionals from the industry. Our team has a background in corporate interiors and upgrades among other things. This enables us to evaluate commercial scopes from different view points. Each of our reports goes through an internal review process for consistency.",
         heroImage: commercialBuilding,
-        features: ["Conceptual Estimates", "Hard Bid Estimates", "Budget Development", "Change Order Analysis"],
+        features: ["Preliminary Estimates", "Final Commercial Estimates", "Conceptual Estimates (SD)", "Design Development Estimates (DD)", "Construction Document Estimates (CD)", "Material and Labour Takeoffs", "Bid Estimate and Bid Support"],
         benefits: [
-            "Deep understanding of commercial building codes",
-            "Integration of union and non-union labor rates",
-            "Detailed Division 1-16 breakdwon",
-            "Support for GMP and Cost-Plus contracts",
-            "Identification of long-lead items",
-            "Risk assessment and contingency planning"
+            "Skilled and certified Estimators",
+            "Detailed cost analysis",
+            "Reliable pricing",
+            "Constant Client Support",
+            "Competitive Pricing",
+            "20 years of experience",
+            "Quality Checks",
+            "Strong knowledge of local codes",
+            "Customized reports"
         ],
         process: [
-            { title: "Project Assessment", description: "We evaluate the complexity and scale of your commercial project." },
-            { title: "Detailed Estimation", description: "Our team calculates costs for all CSI divisions relevant to the scope." },
-            { title: "Review & Refine", description: "Quality control check to ensure all commercial standards are met." },
-            { title: "Final Report", description: "A comprehensive bid package ready for submission." }
+            { title: "Upload your Plans", description: "First share your project drawings which you can upload or email us. We accept various plan types and support many formats. You should include all details, instructions and scope of work." },
+            { title: "Plan a Review and Receive a Quote", description: "The estimators will analyze the plans and review them one by one. We cater to the unique needs of every project for accurate commercial construction estimates. Your quote will have service cost and delivery time." },
+            { title: "Settle Invoice and Confirm Project", description: "Now, you will pay the invoice to schedule your project with professionals. After this, our team will begin the estimating process without delay." },
+            { title: "Receive Detailed Estimate", description: "Finally, you will get your complete material and takeoff list. You will receive a spreadsheet with all items listed. You will get a PDF version for sharing as well." }
         ],
         faqs: [
-            { question: "Do you handle TI (Tenant Improvement) estimates?", answer: "Yes, we specialize in office, retail, and medical tenant improvement estimates." },
-            { question: "Can you help with preliminary budgets for financing?", answer: "Absolutely, we create conceptual estimates to help you secure bank financing." },
-            { question: "Are your estimates suitable for government contracts?", answer: "Yes, we are experienced with federal, state, and municipal bid formats." },
-            { question: "How do you account for market volatility?", answer: "We use real-time material pricing and consult with local vendors to ensure accuracy." },
-            { question: "Do you provide value engineering?", answer: "Yes, we identify alternative materials and methods to save costs without sacrificing quality." },
-            { question: "What is your experience with high-rise buildings?", answer: "We have estimated numerous multi-story commercial projects including hotels and office towers." }
+            { question: "Do you provide cost comparison reports?", answer: "Yes, we give comparison reports to measure price difference and alternates. Thus, you can identify cost gaps and choose the best option. Our comparison reports have clear formatting for bidding." },
+            { question: "How many revisions can I get in my commercial cost estimations?", answer: "We give revision according to the need of the task. Minor adjustments and updates have no extra cost. For major changes, we will offer you affordable revision packages." },
+            { question: "How fast can I receive my estimate?", answer: "For most plans, you can get one within 24 to 48 hours with commercial estimating services Phoenix. Nevertheless, it depends on the complexity and scope of your project, which may take longer." },
+            { question: "Do your estimates follow the industry standards?", answer: "Yes, we stick to industry standards that include CSI MasterFormat and AACE. This ensures structure and transparency in your bidding and planning." },
+            { question: "What will I get in your deliverables?", answer: "You receive comprehensive cost breakdown covering all divisions, inclusion and exclusion details, labor hour breakdown, overhead equipment consideration, complete bid package for submission, cost comparison with alternate reports, updated pricing based on market trends, potential savings with engineering advice, and clarity notes with professional drawings." },
+            { question: "Do you support different types of commercial clients?", answer: "Yes, we serve commercial developers, architects and designers, and commercial contractors with tailored estimating solutions for each client type." }
         ],
         whyImportant: {
-            title: "Winning Commercial Bids",
-            description: "Commercial construction is a high-stakes game where precision is key. Our estimating process not only gives you the numbers but also the strategic insight to bid competitively. We help you understand the true cost of construction so you can protect your margins.",
+            title: "Supporting your Commercial Project Challenges",
+            description: "If your team lacks knowledge to handle cost matters, we will take care of it. In complex commercial work, we will be your partners. Our team of commercial estimating services Phoenix will help you if: You wrestle with project phasing and scope identification, Your team is unsure of drawings or your designs are incomplete, Tracking alternates and revisions is a struggle for you, Bid preparation and submission is overwhelming for you. Our experienced team will handle all of this and give you insight.",
             image: commercialBuilding
         },
         rangeOfServices: {
-            title: "Types of Commercial Projects",
-            description: "We service a wide array of commercial sectors.",
+            title: "Our Commercial Estimating Portfolio",
+            description: "We serve commercial developers, architects and designers, and commercial contractors.",
             items: [
                 "Office Buildings", "Retail Shopping Centers", "Restaurants & Bars",
                 "Hotels & Hospitality", "Medical & Healthcare", "Educational Facilities",
@@ -123,50 +74,54 @@ export const services: ServiceData[] = [
             ]
         },
         stats: [
-            { value: "$2B+", label: "Est. Value", icon: Target },
-            { value: "48h", label: "Avg Turnaround", icon: Clock },
-            { value: "2500+", label: "Commercial Bids", icon: Users },
-            { value: "Top", label: "Industry Rated", icon: Award }
+            { value: "24-48h", label: "Fast Turnaround", icon: Clock },
+            { value: "20yr", label: "Experience", icon: Award },
+            { value: "High", label: "Bid Winning Rate", icon: Target },
+            { value: "24/7", label: "Support", icon: Users }
         ]
     },
     {
         slug: "industrial-estimating-services",
         icon: Factory,
-        title: "Industrial Estimating Services",
-        shortDesc: "Specialized estimating for heavy industrial and manufacturing",
-        description: "Industrial projects require specialized knowledge. Our team creates accurate estimates for plants, refineries, warehouses, and heavy infrastructure projects.",
+        title: "Industrial Estimating Services Phoenix",
+        shortDesc: "Complete understanding of heavy structures and layouts with practical and precise pricing estimates",
+        description: "Industrial construction estimating needs complete understanding of heavy structures and layouts. We give pricing estimates that are practical and precise. Our estimating services will bring clear and structured estimates to support developers. We will prepare every calculation of costs with the latest platforms. A team of experts reviews it after that at our industrial estimation Phoenix. These industry professionals are at your service to increase your chances of success. We have direct experience with production sites and industrial plants. This allows us to review scope from a construction perspective. All our given expenses go through quality checks for optimal results.",
         heroImage: heroConstruction,
-        features: ["Process Piping", "Heavy Equipment", "Structural Steel", "MEP Systems"],
+        features: ["Industrial Structural Estimating Services", "Industrial Mechanical Estimating Services", "Industrial Steel Estimating Services", "HVAC and Ventilation Systems", "Process Piping", "Heavy Equipment Installation"],
         benefits: [
-            "Expertise in complex mechanical systems",
-            "Accurate heavy structural steel takeoffs",
-            "Knowledge of industrial safety mandates",
-            "Equipment installation and rigging costs",
-            "Shutdown and turnaround planning",
-            "Detailed civil and concrete estimates"
+            "Experienced team",
+            "Deep analysis",
+            "Constant client support",
+            "Decades of Experience",
+            "Customized results",
+            "Local code study",
+            "Shorter turnaround time from 24 to 48 hours",
+            "Honest and transparent pricing with no hidden charges",
+            "Strict data protection",
+            "Flexible Revision Support"
         ],
         process: [
-            { title: "Site Analysis", description: "Understanding the logistics and site conditions of the industrial facility." },
-            { title: "System Breakdown", description: "Isolating complex mechanical, electrical, and structural components." },
-            { title: "Cost Modeling", description: "Applying industrial-specific labor rates and productivity factors." },
-            { title: "Bid Delivery", description: "Fully integrated estimate covering all industrial disciplines." }
+            { title: "Upload your Project Plans", description: "Share your drawings and building details with us to start. We analyze scope and trade to prepare commercial estimates. In this way, we understand the needs of the plan better for best results." },
+            { title: "Review and Receive a Quote", description: "We will review your drawings with other details as a first step. Industrial construction estimating services in Phoenix will meet all the needs of your construction task. Thus, our team will give you a clear quote with pricing and timeline in it." },
+            { title: "Confirm Project and Settle Invoice", description: "After the quote, pay the invoice to set a schedule for your calculation. At this point, our team will begin working on it with the latest tools and costs." },
+            { title: "Receive the Final Report", description: "Finally, you will get a complete report of all the costs and takeoffs. These reports will be in a spreadsheet with PDF files in it. Also, Phoenix industrial estimating services will change the format of your report to your liking." }
         ],
         faqs: [
-            { question: "Do you estimate process piping?", answer: "Yes, we have deep experience in carbon steel, stainless, and specialty alloy piping." },
-            { question: "Can you handle wastewater treatment plants?", answer: "We have estimated WWTPs, pumping stations, and associated civil works." },
-            { question: "How do you estimate shutdown work?", answer: "We factor in overtime, shift differentials, and productivity loss for fast-track shutdowns." },
-            { question: "Do you cover heavy equipment installation?", answer: "Yes, including millwright labor, crane rentals, and rigging requirements." },
-            { question: "Are electrical controls included?", answer: "We estimate power distribution, instrumentation, and control systems." },
-            { question: "What about pre-engineered metal buildings?", answer: "We estimate both PEMB and conventional structural steel buildings." }
+            { question: "Can you prepare estimates for heavy industries?", answer: "Yes, our team prepares estimates for heavy buildings like plants and warehouses. Our team rstands these structures and delivers the right numbers for cost." },
+            { question: "Do you follow local codes and industry standards while you do calculations?", answer: "Yes, we prepare our calculations according to local needs and regulations. So, we always follow industry standards to make your process smoother." },
+            { question: "Can you provide trade-specific cost projections instead of full expense?", answer: "Certainly! Our experts do these trade calculations like steel, piping or others. You do not need a full project level estimation to benefit from the best industrial estimating company in Phoenix." },
+            { question: "Do your prices follow current industrial market rates?", answer: "Yes, we base our pricing on the latest market data. We update this data on a regular basis to follow the exact market prices." },
+            { question: "What mechanical systems do you cover?", answer: "Our accurate construction industrial estimates in mechanics cover: HVAC and Ventilation Systems, Gas Distribution and Fuel Piping System, Ductwork and Mechanical Support, Pressure Vessels and Tanks, Fire Protection and Sprinkler System, Instrumentations and Control System, Storage Systems and safety Components." },
+            { question: "What steel estimating services do you provide?", answer: "Our affordable industrial construction estimating services for steel include: Structural Steel, Rebar and Siding Steel, Roofing Support, Platforms and Stairs, Fabrications and Erections." }
         ],
         whyImportant: {
-            title: "Precision in Heavy Industry",
-            description: "Industrial projects often involve millions of dollars in equipment and materials. A small error can cost a fortune. Our industrial estimating team uses specialized tools and historical data to ensure your bid covers every bolt, flange, and hour of labor.",
+            title: "Situations Where Our Estimating Support Helps",
+            description: "We understand the high investments and strict timelines for industrial work. Your team may lack skill for cost analysis but we are here as your estimation partner. Phoenix industrial estimating services will support your industrial work if: It is difficult for you to define the project and divide it for a timeline, Market price changes create difficulty for your calculations, You cannot control the budget during the design making process, Making revisions and finding alternates is hard for you. We will take care of these challenges for you and give clear data.",
             image: heroConstruction
         },
         rangeOfServices: {
-            title: "Industrial Sectors Served",
-            description: "Our expertise spans across heavy industries.",
+            title: "Proven Industrial Estimating Expertise",
+            description: "We provide comprehensive industrial estimating services across all sectors.",
             items: [
                 "Manufacturing Plants", "Food & Beverage Processing", "Oil & Gas Facilities",
                 "Chemical Plants", "Power Generation", "Water Treatment",
@@ -175,27 +130,34 @@ export const services: ServiceData[] = [
             ]
         },
         stats: [
-            { value: "98%", label: "Accuracy", icon: Target },
-            { value: "3-5d", label: "Turnaround", icon: Clock },
+            { value: "24-48h", label: "Fast Turnaround", icon: Clock },
+            { value: "High", label: "Bid-Winning Rate", icon: Target },
             { value: "500+", label: "Industrial Projects", icon: Users },
-            { value: "15yr", label: "Sector Exp", icon: Award }
+            { value: "Expert", label: "Team", icon: Award }
         ]
     },
     {
         slug: "residential-estimating-services",
         icon: Home,
         title: "Residential Estimating Services",
-        shortDesc: "Estimates for single-family, multi-family, and custom homes",
-        description: "Whether you are building a custom dream home or a multi-unit complex, our residential estimates provide the detail homeowners and lenders require.",
+        shortDesc: "Accurate budget and cash flow planning for any residential project with precise cost data",
+        description: "You need an accurate budget and cash flow for any residential project. To get those numbers, a right estimation value is important. Early cost planning will help you understand expenses and make better decisions. Our residential estimating services include accurate cost data that reduces uncertainty for your projects. We prepare each calculator after a complete review. Our experts use digital tools to measure the labor and material costs. We then analyze these to match standard rates and local conditions. In this way, you can move forward with your project without any surprise losses.",
         heroImage: residentialHome,
-        features: ["New Construction", "Remodels & Additions", "Insurance Claims", "Lender Budgets"],
+        features: ["Residential Estimating for Contractors", "Residential Estimating for Developers", "Residential Estimating for Architects and Designers", "Preliminary Residential Estimates", "Final pre-construction Residential Estimates", "Conceptual and feasibility estimates"],
         benefits: [
-            "Tailored for builders and homeowners",
-            "Detailed finish schedules (flooring, tile, paint)",
-            "Lumber package optimization",
-            "Accurate labor rates for residential crews",
-            "Separate owner-supplied items from contractor scope",
-            "Quick turnaround for tight deadlines"
+            "Skilled Estimators",
+            "Detailed Cost Analysis",
+            "Reliable and Location-Based Pricing",
+            "Constant Client Support",
+            "Competitive Pricing Without Quality Loss",
+            "20+ Years of Industry Experience",
+            "Strict Quality Checks at Every Stage",
+            "Strong Knowledge of Local Codes and Standards",
+            "Customized Reports for Easy Review",
+            "Advanced Digital Takeoff and Estimating Software",
+            "Fast Turnaround Times to Meet Tight Deadlines",
+            "Trade-Specific and Full-Scope Estimating Options",
+            "Secure Data Handling and NDA Availability"
         ],
         process: [
             { title: "Plan Intake", description: "Send us your architectural and structural residential plans." },
@@ -204,21 +166,21 @@ export const services: ServiceData[] = [
             { title: "Final Review", description: "A builder-ready budget or bid proposal." }
         ],
         faqs: [
-            { question: "How much does a residential estimate cost?", answer: "Cost depends on square footage and complexity, but we offer competitive fixed pricing." },
-            { question: "Do you estimate home additions?", answer: "Yes, we handle additions, garage conversions, and second-story pop-tops." },
-            { question: "Can I use your estimate for a bank loan?", answer: "Our detailed estimates are widely accepted by construction lenders." },
-            { question: "Do you do insurance claim estimates?", answer: "Yes, we use Xactimate and industry standards to verify insurance scopes." },
-            { question: "Do you help with owner-builder projects?", answer: "Absolutely, we help owner-builders understand their true project costs." },
-            { question: "How detailed is the lumber takeoff?", answer: "We provide a cut list including studs, headers, joists, rafters, and sheathing." }
+            { question: "Do you offer trade residential estimates or only complete estimations?", answer: "We give both options to meet your preference. You can get a full cost projection or trade estimates like concrete and HVAC. This flexibility lets you order what matches your needs." },
+            { question: "How accurate are your residential construction estimates?", answer: "Our estimations are very accurate because we use digital tools. Our cost projections use the latest material and labor pricing to reduce mistakes." },
+            { question: "How long does it take to get a complete residential cost projection?", answer: "Turnaround time at our firm is usually between one to four working days. If your project is big and complex, it will take longer. In any case, we always clarify the timelines before the process." },
+            { question: "In what format will I receive the final report of estimate?", answer: "You will get your final report in EXCEL and PDF formats. This will contain detailed breakdowns of expenses with labor hours and material pricing." },
+            { question: "What residential trades do you support?", answer: "We support cost analysis and takeoff for: Excavation and Sitework, Earthwork and Landscaping, Drywall, painting, flooring and tiling, Carpentry, lumber and Joining, Electrical, mechanical and Plumbing work, Renovations, remodelling and additions, Insulations, doors and windows." },
+            { question: "Do you provide estimates for different stages of design?", answer: "Yes, we provide: Conceptual and feasibility estimates test early designs for the given budget, Schematic design estimates show layout changes and building systems, Design development estimates give trade quantities and cost adjustments, Construction Document Estimates align the final drawings with specifications." }
         ],
         whyImportant: {
-            title: "Building with Confidence",
-            description: "Residential construction margins can be tight. Knowing your exact costs before you break ground allows you to manage your budget, select the right subcontractors, and avoid running out of funds halfway through the build.",
+            title: "When Our Residential Estimating Support Is Most Helpful",
+            description: "Residential construction seems simpler than industrial work on the surface. It still involves budget planning, deadlines and design changes. If right cost planning is hard for you, our estimation services will help you. We will be especially helpful if: You are not sure of the project scope and cost plans, Budgeting is difficult with changing material prices, You need cost alternatives to stay on track with the work, Clear numbers for financing and bidding are lacking.",
             image: residentialHome
         },
         rangeOfServices: {
-            title: "Residential Project Types",
-            description: "Detailed estimates for all living spaces.",
+            title: "Our Residential Construction Estimating Services",
+            description: "We serve contractors, developers, architects and designers with comprehensive residential estimating.",
             items: [
                 "Single Family Tract Homes", "High-End Custom Homes", "Multi-Family Apartments",
                 "Townhouses & Condos", "Accessory Dwelling Units (ADUs)", "Home Renovations",
@@ -227,114 +189,10 @@ export const services: ServiceData[] = [
             ]
         },
         stats: [
+            { value: "1-4d", label: "Turnaround Time", icon: Clock },
+            { value: "20+", label: "Years Experience", icon: Award },
             { value: "3k+", label: "Homes Estimated", icon: Target },
-            { value: "24h", label: "Standard Turnaround", icon: Clock },
-            { value: "100%", label: "Lender Accepted", icon: Users },
-            { value: "5 Star", label: "Reviews", icon: Award }
-        ]
-    },
-    {
-        slug: "mep-estimating-services",
-        icon: HardHat,
-        title: "MEP Estimating Services",
-        shortDesc: "Mechanical, Electrical, and Plumbing integrated estimation",
-        description: "MEP systems often make up 30-40% of a building's cost. Our integrated MEP estimating ensures these critical systems are accurately budgeted and coordinated.",
-        heroImage: heroConstruction,
-        features: ["HVAC Systems", "Electrical Power", "Plumbing & Piping", "Fire Protection"],
-        benefits: [
-            "Coordinated estimation of conflicting systems",
-            "Reduced change orders from clashes",
-            "Accurate equipment and fixture counts",
-            "Detailed labor hours for installation",
-            "Vendor quote validation",
-            "Comprehensive system analysis"
-        ],
-        process: [
-            { title: "System Review", description: "Analyzing single-line diagrams and MEP schedules." },
-            { title: "Component Takeoff", description: "Counting every fixture, fitting, valve, and foot of wire/pipe." },
-            { title: "Labor Application", description: "Applying MCAA/NECA labor standards." },
-            { title: "Final MEP Bid", description: "A combined or separate bid for Mechanical, Electrical, and Plumbing." }
-        ],
-        faqs: [
-            { question: "Do you use MCAA labor units?", answer: "Yes, we typically use MCAA for mechanical and NECA for electrical labor factors." },
-            { question: "Can you estimate design-build MEP?", answer: "We can provide budget estimates based on schematic design narratives." },
-            { question: "Do you cover fire sprinkler systems?", answer: "Yes, we estimate wet, dry, and pre-action fire suppression systems." },
-            { question: "How do you handle equipment quotes?", answer: "We list all equipment specs for you to get accurate vendor pricing, or use database pricing." },
-            { question: "Is insulation included?", answer: "We estimate duct and pipe insulation as part of the mechanical scope." },
-            { question: "Do you estimate low voltage systems?", answer: "Yes, including data, security, fire alarm, and nurse call systems." }
-        ],
-        whyImportant: {
-            title: "The Heart of the Building",
-            description: "MEP systems bring a building to life. Because they are complex and often hidden, they are prone to budget overruns. Our specialized MEP estimators ensure that your heating, cooling, power, and water systems are priced right, preventing costly surprises during installation.",
-            image: heroConstruction
-        },
-        rangeOfServices: {
-            title: "MEP Disciplines",
-            description: "Complete coverage of building systems.",
-            items: [
-                "HVAC Ductwork & Piping", "Plumbing & Drainage", "Electrical Power & Lighting",
-                "Fire Protection Sprinklers", "Low Voltage & Data", "Building Controls (BMS)",
-                "Medical Gas Systems", "Process Piping", "Emergency Power Gen",
-                "Site Utilities", "Geothermal Systems", "Solar PV Systems"
-            ]
-        },
-        stats: [
-            { value: "98%", label: "Accuracy", icon: Target },
-            { value: "48h", label: "Turnaround", icon: Clock },
-            { value: "1000+", label: "MEP Bids", icon: Users },
-            { value: "Expert", label: "Team", icon: Award }
-        ]
-    },
-    {
-        slug: "electrical-estimating-services",
-        icon: Zap,
-        title: "Electrical Estimating Services",
-        shortDesc: "High-precision electrical estimation for commercial and residential",
-        description: "From simple wiring to complex switchgear, our electrical estimating services provide the detail you need to win bids and manage projects profitably.",
-        heroImage: heroConstruction,
-        features: ["Lighting & Controls", "Switchgear & Panels", "Low Voltage Systems", "Site Electrical"],
-        benefits: [
-            "Detailed conduit and wire runs",
-            "Accurate fixture counts and schedules",
-            "NECA labor unit standards",
-            "Feeders and branch circuit analysis",
-            "Fire alarm and security system estimates",
-            "Comprehensive proposal generation"
-        ],
-        process: [
-            { title: "Circuit Analysis", description: "Tracing panel schedules and power distribution." },
-            { title: "Fixture Count", description: "Accounting for all lighting, switches, and devices." },
-            { title: "Feeder Takeoff", description: "Measuring runs for main distribution and equipment power." },
-            { title: "Bid Summary", description: "Complete material and labor breakdown by system." }
-        ],
-        faqs: [
-            { question: "Do you include temporary power?", answer: "Yes, we can estimate temporary power requirements for construction sites." },
-            { question: "How accurate are your wire lengths?", answer: "We measure runs accurately including drops, rises, and makeup waste factors." },
-            { question: "Do you estimate solar projects?", answer: "Yes, we handle residential and commercial PV solar system estimates." },
-            { question: "Can you estimate lighting controls?", answer: "We are experienced with complex dimming, daylighting, and automated control systems." },
-            { question: "What about generator installations?", answer: "We estimate transfer switches, generators, and associated pads/connections." },
-            { question: "Do you provide labor only estimates?", answer: "We can separate labor and material costs to suit your bidding strategy." }
-        ],
-        whyImportant: {
-            title: "Powering Your Profits",
-            description: "Electrical estimating requires extreme attention to detail. A missed run of heavy feeder cable can cost thousands. We meticulously measure every component to ensure your bid covers the full scope of work, protecting your bottom line.",
-            image: heroConstruction
-        },
-        rangeOfServices: {
-            title: "Electrical Scope",
-            description: "Covering the full spectrum of electrical work.",
-            items: [
-                "Lighting & Fixtures", "Power Distribution", "Switchgear & Panels",
-                "Low Voltage & Data", "Fire Alarm Systems", "Security & Access Control",
-                "Site Lighting", "Emergency Generators", "Lightning Protection",
-                "Nurse Call Systems", "Audio/Visual", "Smart Home Automation"
-            ]
-        },
-        stats: [
-            { value: "99%", label: "Accuracy", icon: Target },
-            { value: "24h", label: "Turnaround", icon: Clock },
-            { value: "4000+", label: "Elec. Estimates", icon: Users },
-            { value: "NECA", label: "Standards", icon: Award }
+            { value: "100%", label: "Lender Accepted", icon: Users }
         ]
     }
 ];

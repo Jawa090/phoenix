@@ -84,9 +84,12 @@ const plans = [
         description: "High-volume commercial estimating for large projects.",
         features: [
             "Up to 15 Projects",
-            "Project Size: 10k - 20k SF",
+            "Project Size: 10,000 SF to 20,000 SF",
             "Turnaround: 3 Days per Project",
-            "Multiple Revisions Allowed"
+            "Multiple Revisions Allowed",
+            "Constant Call & Chat Support",
+            "Project Management",
+            "Budget Oversight"
         ],
         popular: false,
         theme: "light"

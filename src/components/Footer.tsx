@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
+import { locations } from "@/data/locations";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -26,7 +27,7 @@ const Footer = () => {
     <footer className="bg-secondary text-secondary-foreground">
       {/* Main Footer */}
       <div className="container mx-auto px-4 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -57,8 +58,7 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          {/* Services */}
-          {/* <div>
+          <div>
             <h3 className="font-display text-xl text-primary-foreground mb-6">
               OUR SERVICES
             </h3>
@@ -74,7 +74,26 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div> */}
+          </div>
+
+          {/* Locations */}
+          <div>
+            <h3 className="font-display text-xl text-primary-foreground mb-6">
+              LOCATIONS
+            </h3>
+            <ul className="space-y-3">
+              {locations.map((location) => (
+                <li key={location.slug}>
+                  <Link
+                    to={`/locations/${location.slug}`}
+                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
+                  >
+                    {location.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Quick Links */}
           <div>

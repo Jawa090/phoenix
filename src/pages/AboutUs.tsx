@@ -205,8 +205,8 @@ const AboutUs = () => {
                                     After 20 years in construction management, estimating, and field operations, Usman saw contractors struggling to prepare accurate, competitive bids while juggling heavy workloads. He founded Phoenix Estimating to bridge that gap—helping teams win more projects without sacrificing time.
                                 </p>
 
-                                <p>
-                                    Usman holds a BA in Architecture, is LEED‑certified, and is active in the American Society of Professional Estimators. His work includes projects for Bacardi, the University of Miami, private developers, and the U.S. Embassy in Jerusalem. He leads a team of engineers and architects with deep field experience.
+                                <p className="text-sm italic text-muted-foreground leading-relaxed">
+                                    "YOU'RE FREE TO BE DIFFERENT" - TRUE INNOVATION COMES NOT FROM TECHNOLOGY ALONE, BUT FROM THE COURAGE TO EMBRACE CHANGE, EMPOWER PEOPLE, AND ENVISION A FUTURE WHERE POSSIBILITIES ARE LIMITLESS. TOGETHER, WE DON'T JUST ADAPT TO THE DIGITAL AGE - WE DEFINE IT.
                                 </p>
                             </div>
 
@@ -257,6 +257,40 @@ const AboutUs = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Portfolio Section */}
+            <section className="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+                <div className="container mx-auto px-4 lg:px-8">
+                    <div className="text-center mb-16 max-w-4xl mx-auto">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-6 py-3 border border-primary/30 mb-6">
+                            <Sparkles className="w-5 h-5 text-primary" />
+                            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+                                Our Work
+                            </span>
+                        </div>
+                        
+                        <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">
+                            VISIT OUR <span className="text-primary">PORTFOLIO</span> TO UNDERSTAND OUR WORK
+                        </h2>
+                        
+                        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                            Explore our extensive portfolio showcasing successful construction estimating projects across residential, commercial, and industrial sectors. See how our accurate estimates have helped contractors win bids and complete projects on time and within budget.
+                        </p>
+                        
+                        <div className="mt-10">
+                            <Button
+                                size="lg"
+                                onClick={() => window.location.href = '/portfolio'}
+                                className="text-lg px-8 py-6 rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all duration-300 group"
+                            >
+                                View Our Portfolio
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQ Section */}
             <section className="py-24 bg-muted/30">
                 <div className="container mx-auto px-4 lg:px-8">

@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import ContactPage from "./pages/ContactPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
+import LocationPage from "./pages/LocationPage";
 import ScrollToTop from "./components/ScrollToTop";
 
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -17,6 +18,7 @@ import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Samples from "./pages/Samples";
 import Pricing from "./pages/Pricing";
+
 
 const queryClient = new QueryClient();
 
@@ -36,6 +38,7 @@ const App = () => (
           <Route path="/samples" element={<Samples />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
+          <Route path="/locations/:slug" element={<LocationPage />} />
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfServices />} />

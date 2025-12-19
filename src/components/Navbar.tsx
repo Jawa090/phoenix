@@ -68,8 +68,7 @@ const Navbar = () => {
             </Link>
 
             {/* Services Dropdown */}
-            {/* Services Dropdown */}
-            {/* <div
+            <div
               className="relative h-full flex items-center"
               onMouseEnter={() => setActiveDropdown("services")}
               onMouseLeave={() => setActiveDropdown(null)}
@@ -87,8 +86,8 @@ const Navbar = () => {
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </Link>
 
-              {/* Services Dropdown Menu - Fixed with transparent bridge */}
-            {/* {activeDropdown === "services" && (
+              {/* Services Dropdown Menu */}
+              {activeDropdown === "services" && (
                 <div className="absolute top-full left-0 pt-2 w-72 animate-fade-up">
                   <div className="bg-card border border-border rounded-xl shadow-elevated py-2 max-h-[80vh] overflow-y-auto">
                     {services.map((service) => (
@@ -102,8 +101,8 @@ const Navbar = () => {
                     ))}
                   </div>
                 </div>
-              )} */}
-            {/* </div> */}
+              )}
+            </div>
 
             {/* Portfolio */}
             <Link
@@ -203,13 +202,29 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              {/* <Link
-                to="/services"
-                className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Services
-              </Link> */}
+              
+              {/* Services Mobile Dropdown */}
+              <div className="py-2">
+                <Link
+                  to="/services"
+                  className="text-secondary-foreground/80 hover:text-primary transition-colors font-medium block mb-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Services
+                </Link>
+                <div className="ml-4 space-y-1">
+                  {services.map((service) => (
+                    <Link
+                      key={service.slug}
+                      to={`/services/${service.slug}`}
+                      className="block text-sm text-secondary-foreground/60 hover:text-primary transition-colors py-1"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <Link
                 to="/portfolio"
                 className="text-secondary-foreground/80 hover:text-primary transition-colors py-2 font-medium"
