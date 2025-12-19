@@ -28,7 +28,7 @@ export const services: ServiceData[] = [
     {
         slug: "commercial-estimating-services",
         icon: Building2,
-        title: "Commercial Estimating Services Phoenix",
+        title: "Commercial Estimating Services",
         shortDesc: "Accurate commercial construction estimates with cost intelligence and complete understanding of building systems",
         description: "Commercial construction projects demand more than basic estimating services. We need strategies of cost intelligence and a complete understanding of building systems. The commercial service is built around these factors to deliver clear and transparent results. We also support contractors and financial institutions with structure models and breakdowns. We make every estimate on the latest platforms and experienced professionals from the industry. Our team has a background in corporate interiors and upgrades among other things. This enables us to evaluate commercial scopes from different view points. Each of our reports goes through an internal review process for consistency.",
         heroImage: commercialBuilding,
@@ -83,7 +83,7 @@ export const services: ServiceData[] = [
     {
         slug: "industrial-estimating-services",
         icon: Factory,
-        title: "Industrial Estimating Services Phoenix",
+        title: "Industrial Estimating Services",
         shortDesc: "Complete understanding of heavy structures and layouts with practical and precise pricing estimates",
         description: "Industrial construction estimating needs complete understanding of heavy structures and layouts. We give pricing estimates that are practical and precise. Our estimating services will bring clear and structured estimates to support developers. We will prepare every calculation of costs with the latest platforms. A team of experts reviews it after that at our industrial estimation Phoenix. These industry professionals are at your service to increase your chances of success. We have direct experience with production sites and industrial plants. This allows us to review scope from a construction perspective. All our given expenses go through quality checks for optimal results.",
         heroImage: heroConstruction,
