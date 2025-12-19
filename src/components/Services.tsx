@@ -45,9 +45,11 @@ const Services = () => {
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground mb-6 flex-grow line-clamp-4 leading-relaxed">{service.description}</p>
-                {/* <Button variant="link" className="p-0 h-auto text-primary mt-auto self-start font-bold uppercase tracking-wide">
-                  Learn More →
-                </Button> */}
+                <Link to={`/services/${service.slug}`}>
+                  <Button variant="link" className="p-0 h-auto text-primary mt-auto self-start font-bold uppercase tracking-wide">
+                    Read More →
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}

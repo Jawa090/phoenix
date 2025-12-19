@@ -88,7 +88,7 @@ const Footer = () => {
                     to={`/locations/${location.slug}`}
                     className="text-secondary-foreground/70 hover:text-primary transition-colors"
                   >
-                    {location.title}
+                    {location.slug.charAt(0).toUpperCase() + location.slug.slice(1)} Estimating
                   </Link>
                 </li>
               ))}
