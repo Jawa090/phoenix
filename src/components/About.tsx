@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, Target } from "lucide-react";
 import estimatingImage from "@/assets/estimating-plans.jpg";
+import ceoImage from "@/assets/ceo.jpeg";
 
 const About = () => {
   const navigate = useNavigate();
@@ -80,6 +81,53 @@ const About = () => {
             <Button variant="default" size="lg" onClick={scrollToContact}>
               Get Estimation Now
             </Button>
+          </div>
+        </div>
+
+        {/* CEO Message Section */}
+        <div className="mt-24">
+          <div className="bg-gradient-to-br from-secondary/50 to-secondary/30 rounded-2xl p-8 md:p-12 border border-border">
+            <div className="grid md:grid-cols-[200px_1fr] gap-8 items-start">
+              {/* CEO Image */}
+              <div className="mx-auto md:mx-0">
+                <div className="relative">
+                  <img
+                    src={ceoImage}
+                    alt="Usman Chaudhary - CEO"
+                    className="w-48 h-48 rounded-xl object-cover shadow-elevated"
+                  />
+                  <div className="absolute -bottom-3 -right-3 bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg">
+                    <p className="font-display text-sm">CEO & Founder</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CEO Message Content */}
+              <div>
+                <h3 className="font-display text-3xl text-foreground mb-6">
+                  A Message from Our <span className="text-gradient">CEO</span>
+                </h3>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Phoenix estimating started with a clear goal to make bidding easier for contractors. After 20 years of experience in the industry, Usman Chaudhary saw a common problem. Contractors were under constant pressure to create the right bids. This was to be done while they also managed projects and deadlines. He founded Phoenix Estimating to solve this challenge. The idea was to take the estimating burden off of contractors' shoulders. They could then focus on their business growth.
+                  </p>
+                  <p>
+                    Today, Phoenix Estimating helps you prepare strong bids faster. This gives them a better chance to win without the added stress.
+                  </p>
+                  <div className="mt-8 p-6 bg-card/50 rounded-xl border-l-4 border-primary">
+                    <p className="font-display text-lg text-foreground mb-2">
+                      "YOU'RE FREE TO BE DIFFERENT"
+                    </p>
+                    <p className="text-muted-foreground italic">
+                      True innovation comes not from technology alone, but from the courage to embrace change, empower people, and envision a future where possibilities are limitless. Together, we don't just adapt to the digital age - we define it.
+                    </p>
+                    <p className="text-foreground font-semibold mt-4">
+                      - Usman Chaudhary
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
