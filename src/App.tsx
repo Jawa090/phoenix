@@ -18,6 +18,9 @@ import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Samples from "./pages/Samples";
 import Pricing from "./pages/Pricing";
+import SEOManager from "./pages/SEOManager";
+import { DynamicRedirects } from "./components/DynamicRedirects";
+import { SEOHead } from "./components/SEOHead";
 
 
 const queryClient = new QueryClient();
@@ -28,7 +31,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <SEOHead />
         <ScrollToTop />
+        <DynamicRedirects />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutUs />} />
@@ -42,6 +47,12 @@ const App = () => (
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfServices />} />
+          
+          {/* SEO Manager - Development mode mein hi dikhega */}
+          {import.meta.env.DEV && (
+            <Route path="/seo-manager/" element={<SEOManager />} />
+          )}
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
