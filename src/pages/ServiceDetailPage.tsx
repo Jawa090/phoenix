@@ -13,6 +13,8 @@ import {
     FileCheck, Users, Award, Target, Lightbulb
 } from "lucide-react";
 import { services } from "@/data/services";
+import { locations } from "@/data/locations";
+import LocationPage from "./LocationPage";
 import heroConstruction from "@/assets/hero-construction.jpg";
 import residentialHome from "@/assets/residential-home.jpg";
 import commercialBuilding from "@/assets/commercial-building.jpg";
@@ -38,6 +40,14 @@ interface ServiceDetail {
 
 const ServiceDetailPage = () => {
     const { slug } = useParams<{ slug: string }>();
+    
+    // Check if it's a location first
+    const location = locations.find((l) => l.slug === slug);
+    if (location) {
+        return <LocationPage />;
+    }
+    
+    // Then check if it's a service
     const service = services.find((s) => s.slug === slug);
 
     if (!service) {
