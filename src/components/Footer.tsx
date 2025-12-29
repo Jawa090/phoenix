@@ -85,7 +85,7 @@ const Footer = () => {
               {locations.map((location) => (
                 <li key={location.slug}>
                   <Link
-                    to={`/locations/${location.slug}`}
+                    to={`/${location.slug}`}
                     className="text-secondary-foreground/70 hover:text-primary transition-colors"
                   >
                     {location.slug.charAt(0).toUpperCase() + location.slug.slice(1)} Estimating
