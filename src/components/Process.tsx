@@ -39,7 +39,7 @@ const Process = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
 
           <h2 className="font-display text-4xl md:text-5xl text-primary-foreground mt-4 mb-6">
-            HOW TO GET<span className="text-primary"> STARTED?</span>
+            Our Simple <span className="text-primary"> Estimation Process in Phoenix?</span>
           </h2>
 
         </div>

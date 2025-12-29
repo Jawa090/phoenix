@@ -12,9 +12,9 @@ const Services = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-display text-4xl md:text-5xl text-foreground mt-4 mb-6">
-            OUR CONSTRUCTION ESTIMATING <span className="text-gradient">
-              COMPREHENSIVE
-            </span> SERVICES
+            OUR CONSTRUCTION ESTIMATING SERVICES in <span className="text-gradient">
+               Phoenix
+            </span> 
           </h2>
         </div>
 

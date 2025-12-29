@@ -78,7 +78,7 @@ const Strategies = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
 
           <h2 className="font-display text-4xl md:text-5xl text-foreground mt-4 mb-6">
-            OUR STRATEGIES FOR SUCCESS
+            OUR STRATEGIES FOR SUCCESSFULL ESTIMATION in Phoenix!
           </h2>
           <p className="text-muted-foreground text-lg">
             We use smart strategies and advanced techniques to ensure precise

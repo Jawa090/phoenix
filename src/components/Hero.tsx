@@ -42,11 +42,8 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-secondary-foreground/80 mb-8 animate-fade-up delay-200">
-            Partner with our construction estimating firm for the most accurate estimation and takeoffs. We help you win more bids with skilled experts and the latest tools. With our support, you can take your construction business to new heights. Use this chance to get all types of estimates and takeoffs with high precision.
+            Partner with our construction estimating company for the most accurate estimation and takeoffsfor the most affordable prices. We help Contractor and Sub-contractors win more bids with skilled estimating experts and the latest estimating tools. With our support, you can take your construction to new heights. Get all types of estimates and takeoffs with high precision!.
           </p>
-
-
-
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up delay-400">
             <Button variant="hero" size="lg" onClick={scrollToContact}>

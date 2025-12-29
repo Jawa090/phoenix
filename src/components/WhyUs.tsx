@@ -62,9 +62,9 @@ const WhyUs = () => {
     {
       icon: Clock,
       value: 24,
-      startValue: 9,
+      startValue: 12,
       suffix: " hr",
-      title: "Rapid Turnaround",
+      title: "Fast Turnaround",
       description: "Fast turnaround time ranging from 9 to 24 hours",
     },
     {

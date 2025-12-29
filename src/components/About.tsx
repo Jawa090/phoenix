@@ -17,8 +17,8 @@ const About = () => {
   const stats = [
     { icon: Award, value: "20+", label: "Years Experience" },
     { icon: Users, value: "500+", label: "Happy Clients" },
-    { icon: Clock, value: "24hr", label: "Turnaround Time" },
-    { icon: Target, value: "100%", label: "Precision" },
+    { icon: Clock, value: "12-24hr", label: "Turnaround Time" },
+    { icon: Target, value: "98%", label: "Precision" },
   ];
 
   return (
@@ -60,7 +60,7 @@ const About = () => {
               BEST <span className="text-gradient">CONSTRUCTION </span>ESTIMATING SERVICES IN PHOENIX
             </h2>
             <p className="text-muted-foreground text-lg mb-6">
-              With over <span className="text-gradient font-bold">20 years</span> of experience, we know how hard it is for contractors to manage projects and save time. That is why we are here. At phoenix construction estimating services, we offer clear and accurate estimates for projects. You get fast turnaround times and competitive prices. These benefits make us one of the best construction estimating services phoenix. We are a trusted choice among local firms.
+              With over <span className="text-gradient font-bold">20 years</span> of experience, we know how hard it is for contractors to manage projects and save time. That is why we are here. At Phoenix Estimating, we offer clear and accurate estimates for projects. You get fast turnaround times and competitive prices. These benefits make us one of the best construction estimating services phoenix. We are a trusted choice among local firms.
             </p>
             <p className="text-muted-foreground mb-8">
               Each takeoff report includes a full material list based on your project needs. We cover all CSI divisions, including lumber and concrete. Our work helps you avoid miscalculations and keeps your project under control.

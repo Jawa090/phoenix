@@ -39,10 +39,10 @@ const TrustworthySection = () => {
                 {/* Section Header */}
                 <div className="text-center max-w-4xl mx-auto mb-16">
                     <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6 leading-tight">
-                        WHAT MAKES US A TRUSTWORTHY<span className="text-primary"> CONSTRUCTION ESTIMATING</span> COMPANY IN PHOENIX?
+                        WHAT MAKES US A <span className="text-primary">TRUSTWORTHY CONSTRUCTION ESTIMATING COMPANY</span>  IN PHOENIX?
                     </h2>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                        We are a reputed name in the industry and we aim to provide the most accurate estimates for all your projects. Hence, our smart strategies make us a good choice for estimating construction costs. Moreover, we use advanced estimating techniques to ensure precise results for insightful planning. Here's what we deliver, making us the #1 estimating company in Phoenix:
+                        We are a reputed name in the industry and we aim to provide the most accurate estimates for all your construction projects in Phoenix. Therefore, our smart and unique estimating softwares make us a good choice for estimating construction costs in Phoenix. Moreover, we use advanced estimating techniques to ensure precise results for insightful planning. Here's what we deliver, making us the #1 estimating company in Phoenix:
                     </p>
                 </div>
 

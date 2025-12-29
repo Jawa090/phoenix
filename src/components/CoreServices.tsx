@@ -30,27 +30,27 @@ const CoreServices = () => {
     {
       icon: Thermometer,
       title: "HVAC Estimating Services",
-      description: "Get accurate takeoff and estimation services with detailed cost of heating and ventilation. We cover estimations of HVAC installations in constructions, including commercial and industrial ones. Hence, residential heating and cooling system estimates are also included.",
+      description: "Get accurate takeoff and estimation services in Phoenix with detailed cost of heating and ventilation. We cover estimations of HVAC installations in constructions, including commercial and industrial ones. Hence, residential heating and cooling system estimates are also included.",
     },
     {
       icon: DoorOpen,
       title: "Opening Takeoffs and Estimations",
-      description: "You will get all the opening estimates including skylights, doors and windows. Thus, have more control over your time and money. Save your resources with the best takeoff decisions.",
+      description: "You will get all the opening estimates including skylights, doors and windows. Thus, have more control over your time and money. Save your resources with the best takeoff decisions in Phoenix.",
     },
     {
       icon: Layers,
       title: "Insulation Estimates",
-      description: "Get an estimation for all your insulation gear, including fiberglass and cellulose insulation. Identify all the areas that need insulation, you can get a complete cost estimation. Also, this will include the labor and equipment cost as well. So, use these estimations with our accurate construction estimating services Phoenix.",
+      description: "Get an precise estimates for all your insulation gear, including fiberglass and cellulose insulation. Identify all the areas that need insulation, you can get a complete cost estimation in Phoenix. Also, this will include the labor and equipment cost as well. So, use these estimations with our accurate construction estimating services Phoenix.",
     },
     {
       icon: Box,
       title: "Lumber and Framing Takeoffs",
-      description: "We provide specific material takeoffs and estimated cost for various kinds of lumber. For example, for lumber to the use in framing, decking or structural work. You will get fuss-free estimations for carrying out your projects with great success.",
+      description: "We provide specific material takeoffs and estimated cost for various kinds of lumber. For example, for lumber to the use in framing, decking or structural work. You will get accurate estimate in Phoenix for carrying out your projects with great success.",
     },
     {
       icon: Paintbrush,
       title: "Finishing Estimating Services",
-      description: "Find reliable estimates and takeoffs for your external as well as interior finishes. For instance, in residential or commercial setups, you can avoid cost overflows. In this way, you can stay on schedule. Above all, you can deliver your project with efficient results on time.",
+      description: "Find reliable estimates and takeoffs for your external as well as interior finishes in Phoenix. For instance, in residential or commercial setups, you can avoid cost overflows. In this way, you can stay on schedule. Above all, you can deliver your project with efficient results on time.",
     },
     {
       icon: Home,

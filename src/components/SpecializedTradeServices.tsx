@@ -12,17 +12,17 @@ const SpecializedTradeServices = () => {
         {
             icon: Wrench,
             title: "Plumbing Takeoffs",
-            description: "We include plumbing takeoffs in our services for all pipes, fittings and accessories. This includes all the equipment needed in the process. Hence, you can plan control costs with it to avoid miscalculations. You can work towards success by using our trustworthy construction estimating company.",
+            description: "We provide plumbing takeoffs for all pipes, fittings and accessories needed. This includes all the equipment needed in the process. Hence, you can plan control costs with it to avoid miscalculations. You can work towards success by using our trustworthy construction estimating company.",
         },
         {
             icon: Building,
             title: "Metal and Steel Estimation",
-            description: "Our service will provide good estimations for steel and metal work. Besides, we will give you a breakdown for everything including connections and fabrications. Likewise, ensure clear cost projection with reliable estimations for a smoother project execution.",
+            description: "We provide accurate estimates and takeoff for steel and metal work. Besides, we will give you a breakdown for everything including connections and fabrications. Likewise, ensure clear cost projection with reliable estimations for a smoother project execution.",
         },
         {
             icon: Frame,
             title: "Door and Windows Estimation",
-            description: "You will get exact takeoff measurements and cost estimation of the doors and windows. Similarly, we give you a complete estimation, covering frames and installation process. So, get the reliable Phoenix construction estimating services and win projects.",
+            description: "You will get exact takeoffs and cost estimation of the doors and windows. Similarly, we give you a complete estimation, covering frames and installation process. So, get the reliable Phoenix construction estimating services and win projects.",
         },
         {
             icon: Mountain,
