@@ -93,7 +93,7 @@ const Navbar = () => {
                     {services.map((service) => (
                       <Link
                         key={service.slug}
-                        to={`/services/${service.slug}`}
+                        to={`/${service.slug}`}
                         className="block px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors text-sm"
                       >
                         {service.title}
@@ -216,7 +216,7 @@ const Navbar = () => {
                   {services.map((service) => (
                     <Link
                       key={service.slug}
-                      to={`/services/${service.slug}`}
+                      to={`/${service.slug}`}
                       className="block text-sm text-secondary-foreground/60 hover:text-primary transition-colors py-1"
                       onClick={() => setIsMenuOpen(false)}
                     >

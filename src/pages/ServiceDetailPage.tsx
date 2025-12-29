@@ -285,7 +285,7 @@ const ServiceDetailPage = () => {
                             .map((relatedService) => (
                                 <Link
                                     key={relatedService.slug}
-                                    to={`/services/${relatedService.slug}`}
+                                    to={`/${relatedService.slug}`}
                                     className="group flex items-center gap-3 p-4 bg-muted/50 rounded-xl hover:bg-primary/10 transition-colors"
                                 >
                                     <relatedService.icon className="w-5 h-5 text-primary" />

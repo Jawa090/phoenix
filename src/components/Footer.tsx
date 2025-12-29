@@ -66,7 +66,7 @@ const Footer = () => {
               {footerServices.map((service) => (
                 <li key={service.slug}>
                   <Link
-                    to={`/services/${service.slug}`}
+                    to={`/${service.slug}`}
                     className="text-secondary-foreground/70 hover:text-primary transition-colors"
                   >
                     {service.title}

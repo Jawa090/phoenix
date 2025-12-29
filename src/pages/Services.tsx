@@ -91,7 +91,7 @@ const Services = () => {
             {services.map((service) => (
               <Link
                 key={service.slug}
-                to={`/services/${service.slug}`}
+                to={`/${service.slug}`}
                 className="group bg-card rounded-xl p-8 border border-border hover:border-primary/50 hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
               >
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">

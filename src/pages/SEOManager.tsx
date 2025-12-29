@@ -53,7 +53,7 @@ const generatePages = (): Page[] => {
 
     // Service pages
     const servicePages: Page[] = services.map(service => ({
-        path: `/services/${service.slug}/`,
+        path: `/${service.slug}/`,
         name: service.title,
         category: 'Service' as const
     }));
@@ -158,7 +158,7 @@ export default function SEOManager() {
     const getPageDefaults = (path: string, pageName: string): SEOData => {
         const baseUrl = BASE_URL;
         const isLocationPage = path.includes('/locations/');
-        const isServicePage = path.includes('/services/');
+        const isServicePage = path.includes('/services/') || services.some(service => path.includes(`/${service.slug}/`));
         
         if (isLocationPage) {
             const location = locations.find(loc => path.includes(`/${loc.slug}/`));
